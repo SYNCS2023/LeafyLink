@@ -29,15 +29,15 @@ const ExistingPlant = () => {
   const plantTypeChanged = (event) => {
     if (!userImage) {
       if (event.target.value === 'Apple') {
-        setCapturedImage('/images/apple.png');
+        setCapturedImage(config.base + '/images/apple.png');
       } else if (event.target.value === 'Banana') {
-        setCapturedImage('/images/banana.png');
+        setCapturedImage(config.base + '/images/banana.png');
       } else if (event.target.value === 'Grape') {
-        setCapturedImage('/images/grape.png');
+        setCapturedImage(config.base + '/images/grape.png');
       } else if (event.target.value === 'Melon') {
-        setCapturedImage('/images/melon.png');
+        setCapturedImage(config.base + '/images/melon.png');
       } else if (event.target.value === 'Strawberry') {
-        setCapturedImage('/images/strawberry.png');
+        setCapturedImage(config.base + '/images/strawberry.png');
       }
     }
   };
