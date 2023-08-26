@@ -24,7 +24,7 @@
         "name": "Luke"
     },
     {
-        "img": "/images/wanning.png",
+        "img": "/images/wanning.jpg",
         "type": "Artichoke",
         "age": 3, 
         "likes": 113,
@@ -37,6 +37,6 @@
         "age": 4, 
         "likes": 113,
         "owned": true,
-        "name": "Luke"
+        "name": "Haowen"
     }
 ]
