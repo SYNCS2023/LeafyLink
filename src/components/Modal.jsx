@@ -80,7 +80,7 @@ const Modal = (props) => {
   const requestPlantProblem = async () => {
     setLoading("loading");
     let image_data = capturedImage;
-    let resp = await fetch('http://127.0.0.1:5000/predict_image', {
+    let resp = await fetch('https://leafylink.ryno.codes/predict_image', {
       method: 'PUT',
       headers: {
           'Content-Type': 'application/json'
