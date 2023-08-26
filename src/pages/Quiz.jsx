@@ -1,9 +1,10 @@
-import React from 'react'
-
 const Quiz = () => {
   return (
-    <div>Quiz</div>
-  )
-}
+    <div>
+      <button className='btn btn-primary'>HELP ME DECIDE WHAT TO GROW</button>
+      <button className='btn btn-primary'>I ALREADY HAVE A PLANT</button>
+    </div>
+  );
+};
 
-export default Quiz
+export default Quiz;
