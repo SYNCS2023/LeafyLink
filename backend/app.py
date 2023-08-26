@@ -88,23 +88,25 @@ app = Flask(__name__)
 def predict_image():
     if request.method == 'OPTIONS':
         response = app.make_default_options_response()
-        print(response)
-        return response
-    try:
-        # Get the JSON data from the request
-        data = request.json
+    else:
+        try:
+            # Get the JSON data from the request
+            data = request.json
 
-        # Extract the base64 encoded image from the data
-        image_base64 = data.get('image_data').split(',')[1]
+            # Extract the base64 encoded image from the data
+            image_base64 = data.get('image_data').split(',')[1]
 
-        # Decode base64 and create a PIL Image
-        image_data = base64.b64decode(image_base64)
-        image_pil = Image.open(BytesIO(image_data))
+            # Decode base64 and create a PIL Image
+            image_data = base64.b64decode(image_base64)
+            image_pil = Image.open(BytesIO(image_data))
 
-        return jsonify({"prediction": predict_image_file(image_pil)})
-
-    except Exception as e:
-        return jsonify({"error": str(e)})
+            response = jsonify({"prediction": predict_image_file(image_pil)})
+        except Exception as e:
+            response =  jsonify({"error": str(e)})
+    response.headers['Access-Control-Allow-Origin'] = '*'
+    response.headers['Access-Control-Allow-Headers'] = 'Content-Type'
+    response.headers['Access-Control-Allow-Methods'] = 'PUT, OPTIONS' 
+    return response
 
 @app.route('/')
 def hello():

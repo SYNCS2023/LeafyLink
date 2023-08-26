@@ -2,30 +2,15 @@ import Webcam from "react-webcam";
 import BackButton from "../components/BackButton";
 import { useRef, useState } from "react";
 import { config } from "../logic/constants";
-
+import ImageHandler from '../components/ImageHandler'; 
 
 const ExistingPlant = () => {
   const [plants, setPlants] = useState(JSON.parse(localStorage.getItem('plants')));
   const plantTypeRef = useRef();
   const plantNameRef = useRef();
-  const webcamRef = useRef(null);
   const [capturedImage, setCapturedImage] = useState(null);
   const [userImage, setUserImage] = useState(false);
 
-  const capture = () => {
-    const imageSrc = webcamRef.current.getScreenshot();
-    setCapturedImage(imageSrc);
-    setUserImage(true);
-  };
-
-  const handleFileChange = (event_main) => {
-    const reader = new FileReader();
-    reader.onload = (event) => {
-      setCapturedImage(event.target.result);
-    };
-    reader.readAsDataURL(event_main.target.files[0]);
-    setUserImage(true);
-  };
   const plantTypeChanged = (event) => {
     if (!userImage) {
       if (event.target.value === 'Apple') {
@@ -94,17 +79,10 @@ const ExistingPlant = () => {
         className="input input-bordered w-full max-w-xs" ref={plantNameRef}/>
       </div>
 
-      <div className="p-2 flex min-h-[40vh] items-center justify-center flex-col place-content-center">
-          <p className="p-2">Provide an image of your plant:</p>
-          <Webcam ref={webcamRef} screenshotFormat="image/jpeg"  />
-          <div className="flex flex-row items-center justify-center place-content-center p-2">
-          <button className="btn btn-primary" onClick={capture}>Capture</button>
-          <p>&nbsp;OR&nbsp;</p>
-          <input type="file" className="file-input w-full max-w-xs align-middle" accept="image/*" onChange={handleFileChange} />
-          </div>
-          <p className="p-2">Selected image:</p>
-          {capturedImage && <img src={capturedImage} alt="Captured" />}
-      </div>
+      <ImageHandler
+        onCapture={(imageSrc) => setCapturedImage(imageSrc)}
+        onFileChange={(imageSrc) => setCapturedImage(imageSrc)}
+      />
       <div className="p-2">
         <button className="btn btn-primary" onClick={createPlant}>Next</button>
       </div>

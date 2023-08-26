@@ -6,7 +6,15 @@ export default defineConfig(({ command, mode }) => {
   if (command === 'build') {
     return {
       plugins: [react()],
-      base: '/LeafyLink/'
+      base: '/LeafyLink/',
+      server: {proxy: {
+        '/api': {
+          target: 'http://127.0.0.1:5000',
+          changeOrigin: true,
+          rewrite: (path) => {console.log(path); return path.replace(/^\/api/, '');},
+          secure: false,      
+        }
+      }},
     }
   } else {
     return {
