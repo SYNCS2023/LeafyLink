@@ -14,17 +14,17 @@ const ExistingPlant = () => {
   const plantTypeChanged = (event) => {
     if (!userImage) {
       if (event.target.value === 'Apple') {
-        setCapturedImage(config.base + '/images/apple.png');
+        setCapturedImage('/images/apple.png');
       } else if (event.target.value === 'Banana') {
-        setCapturedImage(config.base + '/images/banana.png');
+        setCapturedImage('/images/banana.png');
       } else if (event.target.value === 'Grape') {
-        setCapturedImage(config.base + '/images/grape.png');
+        setCapturedImage('/images/grape.png');
       } else if (event.target.value === 'Melon') {
-        setCapturedImage(config.base + '/images/melon.png');
+        setCapturedImage('/images/melon.png');
       } else if (event.target.value === 'Strawberry') {
-        setCapturedImage(config.base + '/images/strawberry.png');
+        setCapturedImage('/images/strawberry.png');
       } else if (event.target.value === 'Tomato') {
-        setCapturedImage(config.base + '/images/tomato.jpg');
+        setCapturedImage('/images/tomato.jpg');
       }
     }
   };
@@ -79,7 +79,7 @@ const ExistingPlant = () => {
         onFileChange={(imageSrc) => {setCapturedImage(imageSrc); setUserImage(true);}}
       />
       <p className="p-2">Selected image:</p>
-      {capturedImage && <img src={capturedImage} alt="Captured" />}
+      {capturedImage && <img src={config.base + capturedImage} alt="Captured" />}
       </div>
       
       <div className="p-2">
