@@ -11,6 +11,7 @@ import FinalSuggestion from './pages/FinalSuggestion';
 import { useEffect, useState } from 'react';
 import defaultPlantData from './assets/defaultPlants.json'
 import Background from './components/Background';
+import { config } from './logic/constants';
 
 function App() {
   const [theme, setTheme] = useState(
@@ -49,7 +50,7 @@ function App() {
     <div className='App grid'>
       <div className='bg-transparent z-50'>
         <Background />
-        <HashRouter>
+        <HashRouter basename={config.base}>
           <Routes>
             <Route path='/' element={<Home />} />
             <Route path='/garden' element={<Garden />} />
