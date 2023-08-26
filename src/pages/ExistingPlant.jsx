@@ -10,10 +10,12 @@ const ExistingPlant = () => {
   const plantNameRef = useRef();
   const webcamRef = useRef(null);
   const [capturedImage, setCapturedImage] = useState(null);
+  const [userImage, setUserImage] = useState(false);
 
   const capture = () => {
     const imageSrc = webcamRef.current.getScreenshot();
     setCapturedImage(imageSrc);
+    setUserImage(true);
   };
 
   const handleFileChange = (event_main) => {
@@ -22,10 +24,21 @@ const ExistingPlant = () => {
       setCapturedImage(event.target.result);
     };
     reader.readAsDataURL(event_main.target.files[0]);
+    setUserImage(true);
   };
   const plantTypeChanged = (event) => {
-    if (!capturedImage) {
-      setCapturedImage('/images/apple.png');
+    if (!userImage) {
+      if (event.target.value === 'Apple') {
+        setCapturedImage('/images/apple.png');
+      } else if (event.target.value === 'Banana') {
+        setCapturedImage('/images/banana.png');
+      } else if (event.target.value === 'Grape') {
+        setCapturedImage('/images/grape.png');
+      } else if (event.target.value === 'Melon') {
+        setCapturedImage('/images/melon.png');
+      } else if (event.target.value === 'Strawberry') {
+        setCapturedImage('/images/strawberry.png');
+      }
     }
   };
   
@@ -69,10 +82,11 @@ const ExistingPlant = () => {
         <select className='select select-bordered w-full max-w-xs' defaultValue={"Select your plant..."}
               ref={plantTypeRef} onChange={plantTypeChanged}>
           <option disabled>Select your plant...</option>
-          <option>Plant a</option>
-          <option>Plant b</option>
-          <option>Plant c</option>
-          <option>Plant d</option>
+          <option>Banana</option>
+          <option>Apple</option>
+          <option>Grape</option>
+          <option>Melon</option>
+          <option>Strawberry</option>
         </select>
       </div>
       <div className="p-2">
