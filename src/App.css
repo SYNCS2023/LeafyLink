@@ -40,3 +40,21 @@
 .read-the-docs {
   color: #888;
 }
+
+body {
+  background: linear-gradient(223deg, #e7faf9, #e5fcf7);
+  background-size: 400% 400%;
+  animation: GradientBackground 15s ease infinite;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+@keyframes GradientBackground {
+  0%{background-position:4% 0%}
+  50%{background-position:97% 100%}
+  100%{background-position:4% 0%}
+}

@@ -1,13 +1,34 @@
 import { motion } from 'framer-motion';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import BackButton from '../components/BackButton';
+import { Link } from 'react-router-dom';
 
 const SuggestPlant = () => {
   const [budget, setBudget] = useState(0);
-  const [location, setLocation] = useState('');
+  const [location, setLocation] = useState(null);
   const [property, setProperty] = useState('');
   const [time, setTime] = useState('');
   const [potted, setPotted] = useState('');
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
+  }, []);
+
+  function successCallback(position) {
+    const { latitude, longitude } = position.coords;
+    setLocation({ latitude, longitude });
+  }
+
+  function errorCallback(error) {
+    console.error('Error getting location:', error.message);
+  }
+
+  const handleButtonClick = async () => {
+    setLoading(true);
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+    setLoading(false);
+  };
 
   return (
     <div>
@@ -16,7 +37,9 @@ const SuggestPlant = () => {
       <p>time: {time}</p>
       <p>property: {property}</p>
       <p>budget: {budget}</p>
-      <p></p>
+      <p>potted: {potted}</p>
+      <p>Latitude: {location?.latitude}</p>
+      <p>Longitude: {location?.longitude}</p>
       <ul>
         <li>
           <select
@@ -77,6 +100,9 @@ const SuggestPlant = () => {
                 name='radio-10'
                 className='radio checked:bg-primary'
                 checked={potted === 'pot'}
+                onChange={() => {
+                  setPotted('pot');
+                }}
               />
             </label>
           </div>
@@ -88,6 +114,9 @@ const SuggestPlant = () => {
                 name='radio-10'
                 className='radio checked:bg-primary'
                 checked={potted === 'ground'}
+                onChange={() => {
+                  setPotted('ground');
+                }}
               />
             </label>
           </div>
@@ -95,18 +124,54 @@ const SuggestPlant = () => {
         <li>
           <input
             type='text'
-            placeholder='Location'
+            placeholder='Enter Location'
             className='input input-bordered w-full max-w-xs'
           />
+        </li>
+        <li>or</li>
+        <li>
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.9 }}
+            onClick={handleButtonClick}
+            className={`btn ${
+              loading ? 'bg-gray-300 cursor-not-allowed' : 'btn-primary'
+            }`}
+            disabled={loading}
+          >
+            {loading ? 'Loading...' : 'Get My Location'}
+          </motion.button>
         </li>
       </ul>
       <motion.button
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.9 }}
-        className='btn btn-accent hover:shadow-lg'
+        className='btn btn-lg btn-accent hover:shadow-lg'
+        onClick={() => window.my_modal_5.showModal()}
       >
         Suggest Plant
       </motion.button>
+
+      <dialog id='my_modal_5' className='modal modal-bottom sm:modal-middle'>
+        <form method='dialog' className='modal-box'>
+          <h3 className='font-bold text-lg'>The best match for you is</h3>
+          <p className='py-4'>Cucumber</p>
+          <img
+            className='object-cover hover:scale-110 transition duration-500 cursor-pointer py-5'
+            src='public/images/lari.png'
+            alt='public/images/lari.png'
+          />
+          <Link to='/garden'>
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.9 }}
+              className='btn btn-accent hover:shadow-lg'
+            >
+              Add to my garden
+            </motion.button>
+          </Link>
+        </form>
+      </dialog>
     </div>
   );
 };

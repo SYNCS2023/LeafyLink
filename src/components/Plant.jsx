@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faDroplet } from '@fortawesome/free-solid-svg-icons';
 
 const randChoice = (arr) => arr[Math.floor(Math.random() * arr.length)];
 
@@ -79,7 +81,7 @@ const Plant = (props) => {
           </h2>
           <div className='align-left text-left text-justify uppercase text-lg'>
             {props.type}
-            <div className='float-right'>{props.likes === 1 ? '1 Like' : `${props.likes || 0} Likes`}</div>
+            <div className='float-right'>{`${props.likes || 0}`} <FontAwesomeIcon icon={faDroplet} /></div>
           </div>
           {props.owned &&
             <div className='card-actions justify-end'>
