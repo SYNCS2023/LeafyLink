@@ -5,18 +5,22 @@
 .gradient-text {
   background-image: -moz-linear-gradient(
     20deg,
-    rgb(85, 255, 99),
-    rgb(84, 255, 255)
+    rgb(145, 255, 0),
+    rgb(0, 64, 255)
   );
 
   background-image: -webkit-linear-gradient(
     20deg,
-    rgb(85, 255, 99),
-    rgb(84, 255, 255)
+    rgb(145, 255, 0),
+    rgb(0, 64, 255)
   );
 
-  background-image: linear-gradient(20deg, rgb(85, 255, 99), rgb(84, 255, 255));
-
+  background-image: linear-gradient(
+    20deg,
+    rgb(145, 255, 0),
+    rgb(0, 64, 255)
+  );
+ 
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
