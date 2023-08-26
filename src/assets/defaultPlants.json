@@ -1,5 +1,6 @@
 [
     {
+        "id": 1,
         "img": "/images/lari.png",
         "type": "Cucumber",
         "age": 0, 
@@ -8,6 +9,7 @@
         "name": "Lari"
     },
     {
+        "id": 2,
         "img": "/images/ryan.jpeg",
         "type": "Tomato",
         "age": 1, 
@@ -16,6 +18,7 @@
         "name": "Ryan"
     },
     {
+        "id": 3,
         "img": "/images/luke.png",
         "type": "Potato",
         "age": 2, 
@@ -24,6 +27,7 @@
         "name": "Luke"
     },
     {
+        "id": 4,
         "img": "/images/wanning.jpg",
         "type": "Artichoke",
         "age": 3, 
@@ -32,6 +36,7 @@
         "name": "Wanning"
     },
     {
+        "id": 5,
         "img": "/images/haowen.webp",
         "type": "Mandarin",
         "age": 4, 
