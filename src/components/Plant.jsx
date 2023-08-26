@@ -2,14 +2,14 @@ import { useState } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDroplet } from '@fortawesome/free-solid-svg-icons';
 import { config } from '../logic/constants';
-import Modal from "./Modal";
+import ModalPlain from "./ModalPlain";
+import ModalQuery from "./ModalQuery";
 
 const Plant = (props) => {
   const [plants, setPlants] = useState(JSON.parse(localStorage.getItem('plants')));
   const [likes, setLikes] = useState(props.likes);
-
+  let modal;
   
-
   const [animate, setAnimate] = useState(false);
 
   const handleAnimate = () => {
@@ -96,7 +96,7 @@ const Plant = (props) => {
                 </div>
               </div>
               <div className='card-actions justify-end'>
-                <Modal/>
+                {props.type == "Tomato" ? <ModalQuery /> : <ModalPlain />}
               </div>
             </div>
           }

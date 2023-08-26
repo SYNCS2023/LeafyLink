@@ -23,6 +23,8 @@ const ExistingPlant = () => {
         setCapturedImage(config.base + '/images/melon.png');
       } else if (event.target.value === 'Strawberry') {
         setCapturedImage(config.base + '/images/strawberry.png');
+      } else if (event.target.value === 'Tomato') {
+        setCapturedImage(config.base + '/images/tomato.jpg');
       }
     }
   };
@@ -61,6 +63,7 @@ const ExistingPlant = () => {
         <select className='select select-bordered w-full max-w-xs' defaultValue={"Select your plant..."}
               ref={plantTypeRef} onChange={plantTypeChanged}>
           <option disabled>Select your plant...</option>
+          <option>Tomato</option>
           <option>Banana</option>
           <option>Apple</option>
           <option>Grape</option>
