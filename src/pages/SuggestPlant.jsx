@@ -1,43 +1,68 @@
 import { motion } from 'framer-motion';
+import { useState } from 'react';
 
 const SuggestPlant = () => {
+  const [budget, setBudget] = useState(0);
+  const [location, setLocation] = useState([]);
+  const [property, setProperty] = useState('');
+  const [time, setTime] = useState('');
+  const [potted, setPotted] = useState('');
+
   return (
     <div>
-      <h1>Suggest a plant for me</h1>
+      <h1 className='prose'>Suggest a plant for me</h1>
+      <p>time: {time}</p>
+      <p>property: {property}</p>
+      <p>budget: {budget}</p>
       <ul>
         <li>
-          <select className='select select-bordered w-full max-w-xs'>
+          <select
+            className='select select-bordered w-full max-w-xs'
+            onChange={(e) => {
+              setProperty(e.target.value);
+            }}
+          >
             <option disabled selected>
               What kind of property are you living in?
             </option>
-            <option>House</option>
-            <option>Apartment/Unit</option>
-            <option>Single Room</option>
-            <option>Caravan</option>
+            <option value='house'>House</option>
+            <option value='apartment'>Apartment/Unit</option>
+            <option value='room'>Single Room</option>
+            <option value='caravan'>Caravan</option>
           </select>
         </li>
         <li>
-          <select className='select select-bordered w-full max-w-xs'>
+          <select
+            className='select select-bordered w-full max-w-xs'
+            onChange={(e) => {
+              setTime(e.target.value);
+            }}
+          >
             <option disabled selected>
               What is the timeframe to harvest your plant?
             </option>
-            <option>Less than a month</option>
-            <option>1-3 Months</option>
-            <option>3-6 Months</option>
-            <option>6-12 Months</option>
-            <option>12 + Months</option>
+            <option value='>1'>Less than a month</option>
+            <option value='1-3'>1-3 Months</option>
+            <option value='3-6'>3-6 Months</option>
+            <option value='3-6'>6-12 Months</option>
+            <option value='12+'>12 + Months</option>
           </select>
         </li>
         <li>
-          <select className='select select-bordered w-full max-w-xs'>
+          <select
+            className='select select-bordered w-full max-w-xs'
+            onChange={(e) => {
+              setBudget(e.target.value);
+            }}
+          >
             <option disabled selected>
               What is your budget?
             </option>
-            <option>$10</option>
-            <option>1-3 Mont</option>
-            <option>3-6 Months</option>
-            <option>6-12 Months</option>
-            <option>12 + Months</option>
+            <option value='5'>$5</option>
+            <option value='10'>$10</option>
+            <option value='25'>$25</option>
+            <option value='50'>$50</option>
+            <option value='100'>$100+</option>
           </select>
         </li>
         <li>
