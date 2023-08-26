@@ -19,6 +19,9 @@ const Home = () => {
             <Plant {...plant} home={true} />
           </div>
         ) : null)}
+        <div className="flex flex-initial justify-center">
+          Made with ♥ by Luke, Wanning, Larissa, Ryan, and Haowen
+        </div>
       </div>
       <Menubar active="home" />
     </div>

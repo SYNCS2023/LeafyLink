@@ -12,6 +12,7 @@ import { useEffect, useState } from 'react';
 import defaultPlantData from './assets/defaultPlants.json'
 import Background from './components/Background';
 import { config } from './logic/constants';
+import Debug from './pages/Debug';
 
 function App() {
   const [theme, setTheme] = useState(
@@ -58,6 +59,7 @@ function App() {
             <Route path='/new' element={<SuggestPlant />} />
             <Route path='/suggestion' element={<FinalSuggestion />} />
             <Route path='/existing' element={<ExistingPlant />} />
+            <Route path='/debug' element={<Debug />} />
             <Route path='*' element={<NotFound />} />
           </Routes>
         </HashRouter>
