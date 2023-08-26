@@ -6,7 +6,7 @@ const SuggestCard = ({ name, imageUrl }) => {
     <div className='mx-1'>
       <p className='py-4'>{name}</p>
       <img
-        className='object-cover hover:scale-110 transition duration-500 cursor-pointer py-5'
+        className='aspect-w-1 aspect-h-1 object-cover hover:scale-110 transition duration-500 cursor-pointer py-5'
         src={imageUrl}
         alt={imageUrl}
       />

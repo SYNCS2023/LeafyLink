@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import suggestPlants from '../logic/suggest';
 import plantData from '../logic/plantData.json';
 import SuggestCard from '../components/SuggestCard';
+import { config } from '../logic/constants';
 
 const SuggestPlant = () => {
   const [budget, setBudget] = useState(0);
@@ -15,12 +16,22 @@ const SuggestPlant = () => {
   const [loading, setLoading] = useState(false);
   const [suggestion, setSuggestion] = useState([]);
 
+  function getImageUrl(plantName) {
+    const plant = plantData.data[plantName];
+    console.log(plant);
+    if (plant) {
+      console.log(plant.image_url);
+      return plant.image_url;
+    } else {
+      return 'https://www.myjunglehome.com.au/cdn/shop/products/monstera-deliciosa-plant-13cm-pot-my-jungle-home-595924_900x.jpg?v=1671202717';
+    }
+  }
+
   useEffect(() => {
     console.log('suggestion state updated:', suggestion);
   }, [suggestion]);
 
   const doSuggestPlants = () => {
-    console.log('doSuggestPlants');
     suggestPlants(budget, location, property, time, potted).then((result) => {
       setSuggestion(result);
     });
@@ -176,7 +187,7 @@ const SuggestPlant = () => {
 
       <dialog id='my_modal_5' className='modal modal-bottom sm:modal-middle'>
         <form method='dialog' className='modal-box'>
-          {suggestion.length !== 0 && (
+          {suggestion.length !== 0 ? (
             <>
               <h3 className='font-bold text-lg'>
                 The best matches for you are
@@ -184,18 +195,35 @@ const SuggestPlant = () => {
               <div className='flex flex-row'>
                 <SuggestCard
                   name={suggestion[0].name}
-                  imageUrl='https://t4.ftcdn.net/jpg/02/32/98/31/360_F_232983161_9lmUyHKnWbLW0vQPvWCrp5R5DSpexhbx.jpg'
+                  imageUrl={
+                    config.base +
+                    `images/suggestions/` +
+                    suggestion[0].name +
+                    `.jpg`
+                  }
                 />
                 <SuggestCard
                   name={suggestion[1].name}
-                  imageUrl='https://t4.ftcdn.net/jpg/02/32/98/31/360_F_232983161_9lmUyHKnWbLW0vQPvWCrp5R5DSpexhbx.jpg'
+                  imageUrl={
+                    config.base +
+                    `images/suggestions/` +
+                    suggestion[1].name +
+                    `.jpg`
+                  }
                 />
                 <SuggestCard
                   name={suggestion[2].name}
-                  imageUrl='https://t4.ftcdn.net/jpg/02/32/98/31/360_F_232983161_9lmUyHKnWbLW0vQPvWCrp5R5DSpexhbx.jpg'
+                  imageUrl={
+                    config.base +
+                    `images/suggestions/` +
+                    suggestion[2].name +
+                    `.jpg`
+                  }
                 />
               </div>
             </>
+          ) : (
+            <span className='loading loading-spinner loading-lg text-center'></span>
           )}
         </form>
       </dialog>
