@@ -44,8 +44,10 @@ const helpMsg = [
 
 
 const Plant = (props) => {
+  const [plants, setPlants] = useState(JSON.parse(localStorage.getItem('plants')));
   const [loading, setLoading] = useState(false);
   const [msg, setMsg] = useState(<></>); // troubleshoot msg
+  const [likes, setLikes] = useState(props.likes);
 
   // "AI generates troubleshoot msg" for 1.5 seconds :]
   // this has unintended behaviour when troubleshoot button clicked too frequently
@@ -61,9 +63,25 @@ const Plant = (props) => {
 
   const handleAnimate = () => {
     setAnimate(true);
+    updatePlant();
     setTimeout(() => {
       setAnimate(false);
     }, 500); // Reset bounce after 1 second
+  };
+
+  const updatePlant = () => {
+    let plant = plants.find((p) => p.id === props.id);
+    plant.likes += 1;
+    setLikes(likes + 1);
+    const newPlants = plants.map((p) => {
+      if (p.id === plant.id) {
+        return plant;
+      } else {
+        return p;
+      }
+    });
+    setPlants(newPlants);
+    localStorage.setItem('plants', JSON.stringify(newPlants));
   };
 
   return (
@@ -92,7 +110,7 @@ const Plant = (props) => {
           <div className='align-left text-left text-justify uppercase text-lg'>
             {props.type}
             <div className='float-right'>
-              {`${props.likes || 0}`} 
+              {`${likes || 0}`} 
                 &nbsp;<button onClick={() => (handleAnimate())}>
                 <FontAwesomeIcon icon={faDroplet} style={{color: 'primary'}} className={animate ? 'animate-bounce' : ''} />
               </button>
