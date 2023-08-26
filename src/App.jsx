@@ -1,5 +1,5 @@
 import './App.css';
-import { Routes, Route, BrowserRouter } from 'react-router-dom';
+import { Routes, Route, HashRouter } from 'react-router-dom';
 import Garden from './pages/Garden';
 import Home from './pages/Home';
 import Quiz from './pages/Quiz';
@@ -49,7 +49,7 @@ function App() {
     <div className='App grid'>
       <div className='bg-transparent z-50'>
         <Background />
-        <BrowserRouter>
+        <HashRouter>
           <Routes>
             <Route path='/' element={<Home />} />
             <Route path='/garden' element={<Garden />} />
@@ -59,7 +59,7 @@ function App() {
             <Route path='/existing' element={<ExistingPlant />} />
             <Route path='*' element={<NotFound />} />
           </Routes>
-        </BrowserRouter>
+        </HashRouter>
       </div>
     </div>
   );
