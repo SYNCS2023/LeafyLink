@@ -1,9 +1,10 @@
 import { motion } from 'framer-motion';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import BackButton from '../components/BackButton';
 import { Link } from 'react-router-dom';
 import suggestPlants from '../logic/suggest';
 import plantData from '../logic/plantData.json';
+import SuggestCard from '../components/SuggestCard';
 
 const SuggestPlant = () => {
   const [budget, setBudget] = useState(0);
@@ -12,14 +13,17 @@ const SuggestPlant = () => {
   const [time, setTime] = useState('');
   const [potted, setPotted] = useState('');
   const [loading, setLoading] = useState(false);
-  const [suggestion1, setSuggestion1] = useState('');
-  const [suggestion2, setSuggestion2] = useState('');
-  const [suggestion3, setSuggestion3] = useState('');
+  const [suggestion, setSuggestion] = useState([]);
+
+  useEffect(() => {
+    console.log('suggestion state updated:', suggestion);
+  }, [suggestion]);
 
   const doSuggestPlants = () => {
     console.log('doSuggestPlants');
-    console.log({ budget, location, property, time, potted });
-    console.log(suggestPlants({ budget, location, property, time, potted }));
+    suggestPlants(budget, location, property, time, potted).then((result) => {
+      setSuggestion(result);
+    });
     window.my_modal_5.showModal();
   };
 
@@ -172,22 +176,25 @@ const SuggestPlant = () => {
 
       <dialog id='my_modal_5' className='modal modal-bottom sm:modal-middle'>
         <form method='dialog' className='modal-box'>
-          <h3 className='font-bold text-lg'>The best match for you is</h3>
-          <p className='py-4'>Cucumber</p>
-          <img
-            className='object-cover hover:scale-110 transition duration-500 cursor-pointer py-5'
-            src='public/images/lari.png'
-            alt='public/images/lari.png'
-          />
-          <Link to='/garden'>
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.9 }}
-              className='btn btn-accent hover:shadow-lg'
-            >
-              Add to my garden
-            </motion.button>
-          </Link>
+          {suggestion.length !== 0 && (
+            <>
+              <h3 className='font-bold text-lg'>
+                The best matches for you are
+              </h3>
+              <SuggestCard
+                name={suggestion[0].name}
+                imageUrl='https://t4.ftcdn.net/jpg/02/32/98/31/360_F_232983161_9lmUyHKnWbLW0vQPvWCrp5R5DSpexhbx.jpg'
+              />
+              <SuggestCard
+                name={suggestion[1].name}
+                imageUrl='https://t4.ftcdn.net/jpg/02/32/98/31/360_F_232983161_9lmUyHKnWbLW0vQPvWCrp5R5DSpexhbx.jpg'
+              />
+              <SuggestCard
+                name={suggestion[2].name}
+                imageUrl='https://t4.ftcdn.net/jpg/02/32/98/31/360_F_232983161_9lmUyHKnWbLW0vQPvWCrp5R5DSpexhbx.jpg'
+              />
+            </>
+          )}
         </form>
       </dialog>
     </div>
