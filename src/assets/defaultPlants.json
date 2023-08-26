@@ -6,16 +6,20 @@
         "age": 25, 
         "likes": 5,
         "owned": false,
-        "name": "Banana Plantation"
+        "name": "Banana Plantation",
+        "user": "Lari",
+        "description": "Just harvested 5 bananas from my banana tree. They are delicious!"
     },
     {
         "id": 2,
         "img": "/images/apple.png",
         "type": "Apple",
-        "age": 85, 
+        "age": 200, 
         "likes": 4,
-        "owned": true,
-        "name": "Frontyard Apple tree"
+        "owned": false,
+        "name": "Frontyard Apple tree",
+        "user": "Luke",
+        "description": "I have a beautiful apple tree in my front yard."
     },
     {
         "id": 3,
@@ -24,7 +28,9 @@
         "age": 200, 
         "likes": 133,
         "owned": false,
-        "name": "Winery Grape Vine"
+        "name": "Winery Grape Vine",
+        "user": "Hunter Valley Vineyards",
+        "description": "We grow the best grapes in the Hunter Valley!"
     },
     {
         "id": 4,
@@ -33,7 +39,9 @@
         "age": 37, 
         "likes": 1,
         "owned": true,
-        "name": "Melon Patch"
+        "name": "Melon Patch",
+        "user": "self",
+        "description": "self"
     },
     {
         "id": 5,
@@ -42,6 +50,8 @@
         "age": 43, 
         "likes": 37,
         "owned": true,
-        "name": "Strawberry Fields"
+        "name": "Strawberry Fields",
+        "user": "self",
+        "description": "self"
     }
 ]
