@@ -34,7 +34,7 @@ const ExistingPlant = () => {
       "age": 0, 
       "likes": 0,
       "owned": true,
-      "image": `data:image/png;base64,${imageStr}`
+      "img": `data:image/png;base64,${imageStr}`
     };
     newPlants.push(addedPlant);
     console.log(addedPlant);
