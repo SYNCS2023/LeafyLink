@@ -1,4 +1,6 @@
 import { Link } from 'react-router-dom';
+import Menubar from '../components/Menubar';
+
 const Quiz = () => {
   return (
     <div>
@@ -8,6 +10,7 @@ const Quiz = () => {
       <Link to='/existing'>
         <button className='btn btn-primary'>I ALREADY HAVE A PLANT</button>
       </Link>
+      <Menubar active="quiz" />
     </div>
   );
 };
