@@ -15,7 +15,7 @@ const Home = () => {
       <Plant name="Ryan" type="Cherry Tomato" img="/images/ryan.jpeg" />
       <Plant name="Ryan" type="Cherry Tomato" img="/images/ryan.jpeg" />
     </div>
-    <Menubar />
+    <Menubar active="home" />
   </div>;
 };
 
