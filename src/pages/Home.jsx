@@ -1,5 +1,5 @@
 import React from 'react';
-import Post from '../components/Post';
+import Plant from '../components/Plant';
 
 const Home = () => {
   return <div>
@@ -12,7 +12,6 @@ const Home = () => {
       <Post name="Ryan" type="Cherry Tomato" image="https://encrypted-tbn0.gstatic.com/licensed-image?q=tbn:ANd9GcQI3JN84mIeTu2LuFuMIjJZyOR8bF8SrckvuaerXftethNxn8sKNptrLAKgliu5lagHMEqSBrhZz_IO9jw" />
       <Post name="Ryan" type="Cherry Tomato" image="https://encrypted-tbn0.gstatic.com/licensed-image?q=tbn:ANd9GcQI3JN84mIeTu2LuFuMIjJZyOR8bF8SrckvuaerXftethNxn8sKNptrLAKgliu5lagHMEqSBrhZz_IO9jw" />
       <Post name="Ryan" type="Cherry Tomato" image="https://encrypted-tbn0.gstatic.com/licensed-image?q=tbn:ANd9GcQI3JN84mIeTu2LuFuMIjJZyOR8bF8SrckvuaerXftethNxn8sKNptrLAKgliu5lagHMEqSBrhZz_IO9jw" />
-
     </div>
   </div>;
 };
