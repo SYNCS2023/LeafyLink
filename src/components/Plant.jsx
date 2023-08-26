@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDroplet } from '@fortawesome/free-solid-svg-icons';
-import { useState } from "react";
 
 
 const randChoice = (arr) => arr[Math.floor(Math.random() * arr.length)];
