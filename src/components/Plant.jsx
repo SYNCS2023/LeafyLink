@@ -12,15 +12,23 @@ const Plant = (props) => {
           />
         </figure>
         <div className="card-body">
-          <h2 className="card-title mb-0">
+          <h2 className="card-title mb-0 uppercase text-primary text-2xl">
             {props.name}!
-            {props.todo ? <div className="badge badge-secondary">NEW</div> : <></>}
+            {(() => {
+              if (props.age == undefined) {
+                return <></>
+              } else if (props.age <= 0) {
+                return <div className="badge badge-secondary">NEW</div>
+              } else {
+                return <div className="badge badge-primary">{props.age === 1 ? "1 DAY OLD" : `${props.age} DAYS OLD`}</div>
+              }
+            })()}
           </h2>
-          <p className='align-left text-left'>
+          <p className='align-left text-left text-justify uppercase text-lg'>
             {props.type}
-            <p className='float-right'>{props.likes || 0} Likes</p>
+            <p className='float-right'>{props.likes === 1 ? "1 Like" : `${props.likes || 0} Likes`}</p>
           </p>
-          {props.owned ? 
+          {props.owned ?
             <div className="card-actions justify-end">
               <button className="btn btn-primary">Troubleshoot</button>
             </div>
