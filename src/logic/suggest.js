@@ -13,7 +13,7 @@ function spaceAvailable(spaceReq, property) {
     if (spaceReq === "L") {
         if (property === "house") return true;
     } else if (spaceReq === "M") {
-        if (property === "apartment") return true;
+        if (property === "apartment" || property === "house") return true;
     } else { // "S"
         if (property === "house" || property === "apartment" || property === "room" || property === "caravan") return true;
     }
