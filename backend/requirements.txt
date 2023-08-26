@@ -1,6 +1,0 @@
-flask
-torch
-torchvision
-numpy
-pandas
-matplotlib
