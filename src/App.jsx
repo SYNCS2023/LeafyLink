@@ -11,18 +11,16 @@ import AppContextProvider from './contexts/appContext';
 function App() {
   return (
     <>
-      <AppContextProvider>
-        <BrowserRouter>
-          <Routes>
-            <Route path='/' element={<Home />} />
-            <Route path='/garden' element={<Garden />} />
-            <Route path='/quiz' element={<Quiz />} />
-            <Route path='/new' element={<SuggestPlant />} />
-            <Route path='/existing' element={<ExistingPlant />} />
-            <Route path='*' element={<NotFound />} />
-          </Routes>
-        </BrowserRouter>
-      </AppContextProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/garden' element={<Garden />} />
+          <Route path='/quiz' element={<Quiz />} />
+          <Route path='/new' element={<SuggestPlant />} />
+          <Route path='/existing' element={<ExistingPlant />} />
+          <Route path='*' element={<NotFound />} />
+        </Routes>
+      </BrowserRouter>
     </>
   );
 }
