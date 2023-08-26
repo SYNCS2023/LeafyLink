@@ -187,6 +187,36 @@ async function suggestPlants(budget, location, property, time, potted) {
 //     )
 //   );
 
+// console.log(
+//     await suggestPlants(
+//         0,
+//         { latitude: -30.607830902, longitude: 130.407831702 },
+//         'caravan',
+//         "3-6",
+//         "pot"
+//     )
+// );
+
+// console.log(
+//     await suggestPlants(
+//         0,
+//         { latitude: -30.607830902, longitude: 130.407831702 },
+//         'house',
+//         "12+",
+//         "ground"
+//     )
+// );
+
+// console.log(
+//     await suggestPlants(
+//         0,
+//         { latitude: -27.46794000, longitude: 153.02809000 },
+//         'house',
+//         "12+",
+//         "ground"
+//     )
+// );
+
 // console.log((new Date()).getMonth());
 
 export default suggestPlants;
