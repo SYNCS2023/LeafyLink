@@ -1,6 +1,12 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins|Nunito&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+  font-family: 'Nunito', sans-serif;
+}
 
 .gradient-text {
   background-image: -moz-linear-gradient(
@@ -15,12 +21,8 @@
     rgb(0, 64, 255)
   );
 
-  background-image: linear-gradient(
-    20deg,
-    rgb(145, 255, 0),
-    rgb(0, 64, 255)
-  );
- 
+  background-image: linear-gradient(20deg, rgb(145, 255, 0), rgb(0, 64, 255));
+
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
