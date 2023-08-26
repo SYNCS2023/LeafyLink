@@ -196,8 +196,6 @@ async function suggestPlants(budget, location, property, time, potted) {
         return b.score - a.score;
     });
 
-    return suggestions;
-
     const max = suggestions[0].score;
     const suggestionsMax = suggestions.filter(function (s) {
         return s.score === max;
