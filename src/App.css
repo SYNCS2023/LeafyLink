@@ -49,6 +49,12 @@ body {
   scrollbar-width: none;  /* Firefox */
 }
 
+@media (prefers-color-scheme: dark) {
+  body {
+    background: linear-gradient(223deg, #1c1c1c, #1f1d1d);
+  }
+}
+
 body::-webkit-scrollbar {
   display: none;
 }

@@ -1,42 +1,47 @@
 [
     {
-        "img": "/images/lari.png",
-        "type": "Cucumber",
-        "age": 0, 
+        "id": 1,
+        "img": "/images/banana.png",
+        "type": "Banana",
+        "age": 25, 
+        "likes": 5,
+        "owned": false,
+        "name": "Banana Plantation"
+    },
+    {
+        "id": 2,
+        "img": "/images/apple.png",
+        "type": "Apple",
+        "age": 85, 
+        "likes": 4,
+        "owned": true,
+        "name": "Frontyard Apple tree"
+    },
+    {
+        "id": 3,
+        "img": "/images/grape.png",
+        "type": "Grape",
+        "age": 200, 
         "likes": 133,
-        "owned": true,
-        "name": "Lari"
+        "owned": false,
+        "name": "Winery Grape Vine"
     },
     {
-        "img": "/images/ryan.jpeg",
-        "type": "Tomato",
-        "age": 1, 
-        "likes": 133,
+        "id": 4,
+        "img": "/images/melon.png",
+        "type": "Melon",
+        "age": 37, 
+        "likes": 1,
         "owned": true,
-        "name": "Ryan"
+        "name": "Melon Patch"
     },
     {
-        "img": "/images/luke.png",
-        "type": "Potato",
-        "age": 2, 
-        "likes": 133,
+        "id": 5,
+        "img": "/images/strawberry.png",
+        "type": "Strawberry",
+        "age": 43, 
+        "likes": 37,
         "owned": true,
-        "name": "Luke"
-    },
-    {
-        "img": "/images/wanning.png",
-        "type": "Artichoke",
-        "age": 3, 
-        "likes": 113,
-        "owned": true,
-        "name": "Wanning"
-    },
-    {
-        "img": "/images/haowen.webp",
-        "type": "Mandarin",
-        "age": 4, 
-        "likes": 113,
-        "owned": true,
-        "name": "Luke"
+        "name": "Strawberry Fields"
     }
 ]

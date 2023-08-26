@@ -1,7 +1,12 @@
-import plantData from "./plantData.json" assert { type: 'json' };
+import plantData from './plantData.json' assert { type: 'json' };
 
 function getClimateData(lattitude, longitude) {
-    return fetch("http://climateapi.scottpinkelman.com/api/v1/location/" + lattitude + "/" + longitude);
+  return fetch(
+    'http://climateapi.scottpinkelman.com/api/v1/location/' +
+      lattitude +
+      '/' +
+      longitude
+  );
 }
 
 function spaceAvailable(spaceReq, property) {
@@ -37,7 +42,7 @@ async function suggestPlants(budget, location, property, time, potted) {
     const resJSON = await locc;
     const kgz_1User = resJSON.return_values[0].koppen_geiger_zone.slice(0,1);
 
-    console.log("Ordered suggestions for input of: " + location.latitude + " " + location.longitude + " " + property + " " + time + " " + (potted ? "pot" : "garden"));
+    console.log("Ordered suggestions for input of: " + location.latitude + " " + location.longitude + " " + property + " " + time + " " + potted);
 
     for (let [key, value] of Object.entries(plantData.data)) {
         if (spaceAvailable(value.space_req, property)) {
@@ -57,22 +62,47 @@ async function suggestPlants(budget, location, property, time, potted) {
         }
     }
 
-    if (suggestions.length == 0) return suggestions;
+  if (suggestions.length == 0) return suggestions;
 
-    suggestions.sort(function(a, b) {return b.score - a.score});
+  suggestions.sort(function (a, b) {
+    return b.score - a.score;
+  });
 
-    const max = suggestions[0].score;
+  const max = suggestions[0].score;
 
-    const suggestionsMax = suggestions.filter(function(s) {return s.score === max});
-    if (suggestions.length >= 3 && suggestionsMax.length >= 3) {
-        const shuffledMax = suggestionsMax.sort(() => 0.5 - Math.random());
-        return shuffledMax.slice(0, 3);
-    } else {
-        return suggestions;
-    }
+  const suggestionsMax = suggestions.filter(function (s) {
+    return s.score === max;
+  });
+  if (suggestions.length >= 3 && suggestionsMax.length >= 3) {
+    const shuffledMax = suggestionsMax.sort(() => 0.5 - Math.random());
+    return shuffledMax.slice(0, 3);
+  } else {
+    return suggestions;
+  }
 }
+    
 
 // console.log(suggestPlants());
-// console.log(await suggestPlants(0, {latitude: -33.865143, longitude: 151.209900}, "Apartment", 5, true));
-// console.log(await suggestPlants(0, {latitude: -33.865143, longitude: 151.209900}, "House", 5, true));
-console.log(await suggestPlants(0, {latitude: -33.865143, longitude: 151.209900}, "House", 5, false));
+// console.log(await suggestPlants(0, {latitude: -33.865143, longitude: 151.209900}, "apartment", 5, pot));
+// console.log(await suggestPlants(0, {latitude: -33.865143, longitude: 151.209900}, "house", 5, pot));
+console.log(
+  await suggestPlants(
+    0,
+    { latitude: -33.865143, longitude: 151.2099 },
+    'house',
+    5,
+    "pot"
+  )
+);
+
+console.log(
+    await suggestPlants(
+      0,
+      { latitude: -33.865143, longitude: 151.2099 },
+      'house',
+      5,
+      "ground"
+    )
+  );
+
+export default suggestPlants;

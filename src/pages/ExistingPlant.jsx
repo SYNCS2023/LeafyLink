@@ -27,17 +27,17 @@ const ExistingPlant = () => {
   const createPlant = async () => {
     var newPlants = plants;
     let imageStr = await convertToBase64(plantImageRef.current.files[0]);
-    console.log(imageStr);
+    let nextId = Math.max.apply(Math, plants.map(function(o) { return o.id; })) + 1;
     let addedPlant = {
+      "id": nextId,
+      "img": `data:image/png;base64,${imageStr}`,
       "type": plantTypeRef.current.value,
-      "name": plantNameRef.current.value,
       "age": 0, 
       "likes": 0,
       "owned": true,
-      "image": `data:image/png;base64,${imageStr}`
+      "name": plantNameRef.current.value,
     };
     newPlants.push(addedPlant);
-    console.log(addedPlant);
     setPlants(newPlants);
     localStorage.setItem('plants', JSON.stringify(newPlants));
 
