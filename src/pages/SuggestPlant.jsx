@@ -79,7 +79,7 @@ const SuggestPlant = () => {
             <option value='>1'>Less than a month</option>
             <option value='1-3'>1-3 Months</option>
             <option value='3-6'>3-6 Months</option>
-            <option value='3-6'>6-12 Months</option>
+            <option value='6-12'>6-12 Months</option>
             <option value='12+'>12 + Months</option>
           </select>
         </li>
