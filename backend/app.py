@@ -68,6 +68,7 @@ with open('labels.json', 'rb') as f:
     reference = pickle.load(f)
 
 def predict_image_file(image):
+    image = image.convert('RGB')
     image = ToTensor()(image)
     resize = transforms.Compose([transforms.Resize((256,256))])
     y_result = model(resize(image).unsqueeze(0))
@@ -95,14 +96,15 @@ def predict_image():
 
             # Extract the base64 encoded image from the data
             image_base64 = data.get('image_data').split(',')[1]
-
             # Decode base64 and create a PIL Image
             image_data = base64.b64decode(image_base64)
+            # print(hex(hash(image_data)))
             image_pil = Image.open(BytesIO(image_data))
-
-            response = jsonify({"prediction": predict_image_file(image_pil)})
+            prediction = predict_image_file(image_pil)
+            # print(f"{prediction=}")
+            response = jsonify({"prediction": prediction})
         except Exception as e:
-            response =  jsonify({"error": str(e)})
+            response = jsonify({"prediction": str(e)})
     response.headers['Access-Control-Allow-Origin'] = '*'
     response.headers['Access-Control-Allow-Headers'] = 'Content-Type'
     response.headers['Access-Control-Allow-Methods'] = 'PUT, OPTIONS' 

@@ -48,13 +48,7 @@ const ExistingPlant = () => {
 
     window.location.href = config.base + "/#/garden";
 
-  //   console.log(await (await fetch('/api/predict_image', {
-  //     method: 'PUT',
-  //     headers: {
-  //         'Content-Type': 'application/json'
-  //     },
-  //     body: JSON.stringify({"image_data": capturedImage})
-  // })).json());
+
   };
 
   return (

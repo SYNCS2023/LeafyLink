@@ -1,5 +1,6 @@
 import React from 'react'
 import { useState } from 'react';
+import ImageHandler from './ImageHandler';
 
 const randChoice = (arr) => arr[Math.floor(Math.random() * arr.length)];
 
@@ -40,18 +41,56 @@ const helpMsg = [
   </>
 ];
 
-const Modal = () => {
-  const [loading, setLoading] = useState(false);
+const Modal = (props) => {
+  const [loading, setLoading] = useState("imagepicker");
   const [msg, setMsg] = useState(<></>); // troubleshoot msg
+  const [capturedImage, setCapturedImage] = useState(null);
+  
+  const convertImageToDataURL = async (imageUrl) => {
+    const response = await fetch(imageUrl);
+    const blob = await response.blob();
+  
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = () => {
+        resolve(reader.result);
+      };
+      reader.onerror = () => {
+        reject('Error reading image file');
+      };
+      reader.readAsDataURL(blob);
+    });
+  };
 
   // "AI generates troubleshoot msg" for 1.5 seconds :]
   // this has unintended behaviour when troubleshoot button clicked too frequently
-  const loadTroubleshoot = () => {
-    setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
-      setMsg(randChoice(helpMsg));
-    }, 1500);
+  const loadTroubleshoot = async () => {
+        setLoading("imagepicker");
+        setCapturedImage(null);
+  //   setLoading(true);
+
+
+  //   setTimeout(() => {
+  //     setLoading(false);
+  //     setMsg(randChoice(helpMsg));
+  //   }, 1500);
+  //   setLoading(false);
+  };
+
+  const requestPlantProblem = async () => {
+    setLoading("loading");
+    let image_data = capturedImage;
+    let resp = await fetch('/api/predict_image', {
+      method: 'PUT',
+      headers: {
+          'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({"image_data": image_data})
+    });
+    let resp_data = await resp.json();
+    console.log(resp_data);
+    setMsg(<p>{resp_data.prediction}</p>);
+    setLoading("message");
   };
 
   return (
@@ -60,9 +99,20 @@ const Modal = () => {
       <input type='checkbox' id='my_modal' className='modal-toggle' onClick={() => loadTroubleshoot()} />
       <div className='modal'>
         <div className='modal-box max-w-screen-2xl'>
-          {loading ?
-            <span className="loading loading-spinner loading-lg text-center"></span> :
-            <div className="text-left">{msg}</div>
+          { loading === "imagepicker" ? 
+                  <div className="p-2 flex min-h-[40vh] items-center justify-center flex-col place-content-center">
+                  <ImageHandler
+                    onCapture={(imageSrc) => setCapturedImage(imageSrc) }
+                    onFileChange={(imageSrc) => setCapturedImage(imageSrc)}
+                  />
+                  <p className="p-2">Selected image:</p>
+                  {capturedImage && <img src={capturedImage} alt="Captured" />}
+                  <button className="btn btn-primary" onClick={requestPlantProblem}>Submit</button>
+                  </div>
+            : (
+              loading === "loading" ? <span className="loading loading-spinner loading-lg text-center"></span> : 
+              <div className="text-left">{msg}</div>
+            )
           }
         </div>
         <label className='modal-backdrop' htmlFor='my_modal'>Close</label>
