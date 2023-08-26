@@ -22,6 +22,17 @@
             "pots": true,
             "garden": true
         },
+        "bean sprout": {
+            "name": "bean sprout",
+            "kgz_1": ["A", "B", "C", "D"],
+            "kgz_2": "",
+            "kgz_3": "",
+            "image_url": "https://i.pinimg.com/originals/fe/d2/6d/fed26da97c5d28883d8dc8b9b3ca14c2.png",
+            "description": "placeholder placeholder placeholder placeholder placeholder ",
+            "space_req": "S",
+            "pots": true,
+            "garden": false
+        },
         "cabbage": {
             "name": "cabbage",
             "kgz_1": ["C", "D"],
@@ -86,6 +97,17 @@
             "description": "placeholder placeholder placeholder placeholder placeholder ",
             "space_req": "S",
             "pots": true,
+            "garden": true
+        },
+        "mango": {
+            "name": "mango",
+            "kgz_1": ["A"],
+            "kgz_2": "",
+            "kgz_3": "",
+            "image_url": "https://i.pinimg.com/originals/fe/d2/6d/fed26da97c5d28883d8dc8b9b3ca14c2.png",
+            "description": "placeholder placeholder placeholder placeholder placeholder ",
+            "space_req": "L",
+            "pots": false,
             "garden": true
         },
         "mint": {

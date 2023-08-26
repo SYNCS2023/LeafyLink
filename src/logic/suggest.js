@@ -27,15 +27,15 @@ async function suggestPlants(budget, location, property, time, potted) {
         if (spaceAvailable(value.space_req, property)) {
             let index = suggestions.push({name: value.name, score: 0}) - 1;
             if (value.kgz_1.includes(kgz_1User)) {
-                suggestions[index].score = suggestions[index].score + 5;
+                suggestions[index].score = suggestions[index].score + 3;
             }
             if (potted) {
                 if (value.pots) {
-                    suggestions[index].score = suggestions[index].score + 3;
+                    suggestions[index].score = suggestions[index].score + 5;
                 }
             } else {
                 if (value.garden) {
-                    suggestions[index].score = suggestions[index].score + 3;
+                    suggestions[index].score = suggestions[index].score + 5;
                 }
             }
         }
