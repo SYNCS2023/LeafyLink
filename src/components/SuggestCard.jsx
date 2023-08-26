@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 
 const SuggestCard = ({ name, imageUrl }) => {
   return (
-    <div>
+    <div className='mx-1'>
       <p className='py-4'>{name}</p>
       <img
         className='object-cover hover:scale-110 transition duration-500 cursor-pointer py-5'
@@ -16,7 +16,7 @@ const SuggestCard = ({ name, imageUrl }) => {
           whileTap={{ scale: 0.9 }}
           className='btn btn-accent hover:shadow-lg'
         >
-          Add to my garden
+          Add to garden
         </motion.button>
       </Link>
     </div>

@@ -181,18 +181,20 @@ const SuggestPlant = () => {
               <h3 className='font-bold text-lg'>
                 The best matches for you are
               </h3>
-              <SuggestCard
-                name={suggestion[0].name}
-                imageUrl='https://t4.ftcdn.net/jpg/02/32/98/31/360_F_232983161_9lmUyHKnWbLW0vQPvWCrp5R5DSpexhbx.jpg'
-              />
-              <SuggestCard
-                name={suggestion[1].name}
-                imageUrl='https://t4.ftcdn.net/jpg/02/32/98/31/360_F_232983161_9lmUyHKnWbLW0vQPvWCrp5R5DSpexhbx.jpg'
-              />
-              <SuggestCard
-                name={suggestion[2].name}
-                imageUrl='https://t4.ftcdn.net/jpg/02/32/98/31/360_F_232983161_9lmUyHKnWbLW0vQPvWCrp5R5DSpexhbx.jpg'
-              />
+              <div className='flex flex-row'>
+                <SuggestCard
+                  name={suggestion[0].name}
+                  imageUrl='https://t4.ftcdn.net/jpg/02/32/98/31/360_F_232983161_9lmUyHKnWbLW0vQPvWCrp5R5DSpexhbx.jpg'
+                />
+                <SuggestCard
+                  name={suggestion[1].name}
+                  imageUrl='https://t4.ftcdn.net/jpg/02/32/98/31/360_F_232983161_9lmUyHKnWbLW0vQPvWCrp5R5DSpexhbx.jpg'
+                />
+                <SuggestCard
+                  name={suggestion[2].name}
+                  imageUrl='https://t4.ftcdn.net/jpg/02/32/98/31/360_F_232983161_9lmUyHKnWbLW0vQPvWCrp5R5DSpexhbx.jpg'
+                />
+              </div>
             </>
           )}
         </form>
