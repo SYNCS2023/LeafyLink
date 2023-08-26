@@ -6,13 +6,29 @@ function getClimateData(lattitude, longitude) {
 
 function spaceAvailable(spaceReq, property) {
     if (spaceReq === "L") {
-        if (property === "House") return true;
+        if (property === "house") return true;
     } else if (spaceReq === "M") {
-        if (property === "House") return true;
+        if (property === "apartment") return true;
     } else { // "S"
-        if (property === "House" || property === "Apartment" || property === "Single Room" || property === "Caravan") return true;
+        if (property === "house" || property === "apartment" || property === "room" || property === "caravan") return true;
     }
     return false;
+}
+
+function distanceHarvestTime(plant, time) {
+    const harvest_time = plant.harvest_time;
+
+    if (time === ">1") {
+        time = 1; 
+    } else if (time === "1-3") {
+        time = 2;
+    } else if (time === "3-6") {
+        time = 5;
+    } else if (time === "6-12") {
+        time = 9;
+    } else {
+        time = 12;
+    }
 }
 
 async function suggestPlants(budget, location, property, time, potted) {
@@ -29,11 +45,11 @@ async function suggestPlants(budget, location, property, time, potted) {
             if (value.kgz_1.includes(kgz_1User)) {
                 suggestions[index].score = suggestions[index].score + 3;
             }
-            if (potted) {
+            if (potted === "pot") {
                 if (value.pots) {
                     suggestions[index].score = suggestions[index].score + 5;
                 }
-            } else {
+            } else { // ground
                 if (value.garden) {
                     suggestions[index].score = suggestions[index].score + 5;
                 }
