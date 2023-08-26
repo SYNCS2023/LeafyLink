@@ -1,0 +1,1 @@
+fucntion algo({biudet})

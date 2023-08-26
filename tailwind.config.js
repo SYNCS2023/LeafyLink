@@ -4,9 +4,9 @@ export default {
   theme: {
     extend: {
       colors: {
-        "primary": "#4406CB",
-      }
+        primary: '#4406CB',
+      },
     },
   },
-  plugins: [require('daisyui')],
+  plugins: [require('daisyui'), require('@tailwindcss/typography')],
 };

@@ -7,8 +7,18 @@ import NotFound from './pages/NotFound';
 import SuggestPlant from './pages/SuggestPlant';
 import ExistingPlant from './pages/ExistingPlant';
 import AppContextProvider from './contexts/appContext';
+import FinalSuggestion from './pages/FinalSuggestion';
+import { useEffect } from 'react';
+import defaultPlantData from './assets/defaultPlants.json'
 
 function App() {
+  useEffect(() => {
+    if (localStorage.getItem('plants') === null) {
+      localStorage.setItem('plants', JSON.stringify(defaultPlantData));
+      console.log('Setting default plant DB.');
+    }
+  }, []); 
+
   return (
     <>
       <BrowserRouter>
@@ -17,6 +27,7 @@ function App() {
           <Route path='/garden' element={<Garden />} />
           <Route path='/quiz' element={<Quiz />} />
           <Route path='/new' element={<SuggestPlant />} />
+          <Route path='/suggestion' element={<FinalSuggestion />} />
           <Route path='/existing' element={<ExistingPlant />} />
           <Route path='*' element={<NotFound />} />
         </Routes>
