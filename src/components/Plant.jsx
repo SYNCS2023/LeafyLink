@@ -95,19 +95,19 @@ const Plant = (props) => {
           />
         </figure>
         <div className='card-body'>
-          <h2 className='card-title mb-0 uppercase text-primary text-2xl'>
-            {props.name}!
+          <h2 className='card-title mb-0 text-primary text-2xl'>
+            {props.name}
             {(() => {
               if (props.age === undefined) {
                 return <></>
               } else if (props.age <= 0) {
                 return <div className='badge badge-secondary'>NEW</div>
               } else {
-                return <div className='badge badge-primary'>{props.age === 1 ? '1 DAY OLD' : `${props.age} DAYS OLD`}</div>
+                return <div className='badge badge-primary h-fit'>{props.age === 1 ? '1 DAY OLD' : `${props.age} DAYS OLD`}</div>
               }
             })()}
           </h2>
-          <div className='align-left text-left text-justify uppercase text-lg'>
+          <div className='align-left text-left text-justify text-lg'>
             {props.type}
             <div className='float-right'>
               {`${likes || 0}`} 

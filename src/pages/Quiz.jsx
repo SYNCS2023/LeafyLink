@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 
 const Quiz = () => {
   return (
-    <>
+    <div className='min-h-screen'>
       <h1 className='text-5xl font-bold gradient-text'>
         Bring a new life to your garden!
       </h1>
@@ -31,7 +31,7 @@ const Quiz = () => {
         </div>
       </div>
       <Menubar active='quiz' />
-    </>
+    </div>
   );
 };
 

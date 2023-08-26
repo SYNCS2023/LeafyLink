@@ -14,7 +14,7 @@ const Home = () => {
     <br></br>
     <div className="grid grid-cols-1 gap-4 content-center justify-items-center">
       {plants.map((plant) => (
-        <div className="flex flex-initial justify-center">
+        <div key={plant.id} className="flex flex-initial justify-center">
           <Plant name={plant.name} type={plant.type} img={plant.img} likes={plant.likes} id={plant.id} />
         </div>
       ))}
