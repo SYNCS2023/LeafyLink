@@ -10,61 +10,57 @@ function getClimateData(lattitude, longitude) {
 }
 
 function spaceAvailable(spaceReq, property) {
-  if (spaceReq === 'L') {
-    if (property === 'House') return true;
-  } else if (spaceReq === 'M') {
-    if (property === 'House') return true;
-  } else {
-    // "S"
-    if (
-      property === 'House' ||
-      property === 'Apartment' ||
-      property === 'Single Room' ||
-      property === 'Caravan'
-    )
-      return true;
-  }
-  return false;
+    if (spaceReq === "L") {
+        if (property === "house") return true;
+    } else if (spaceReq === "M") {
+        if (property === "apartment") return true;
+    } else { // "S"
+        if (property === "house" || property === "apartment" || property === "room" || property === "caravan") return true;
+    }
+    return false;
+}
+
+function distanceHarvestTime(plant, time) {
+    const harvest_time = plant.harvest_time;
+
+    if (time === ">1") {
+        time = 1; 
+    } else if (time === "1-3") {
+        time = 2;
+    } else if (time === "3-6") {
+        time = 5;
+    } else if (time === "6-12") {
+        time = 9;
+    } else {
+        time = 12;
+    }
 }
 
 async function suggestPlants(budget, location, property, time, potted) {
-  const suggestions = [];
-  const locc = (
-    await getClimateData(location.latitude, location.longitude)
-  ).json();
-  const resJSON = await locc;
-  const kgz_1User = resJSON.return_values[0].koppen_geiger_zone.slice(0, 1);
+    const suggestions = [];
+    const locc = (await getClimateData(location.latitude, location.longitude)).json();
+    const resJSON = await locc;
+    const kgz_1User = resJSON.return_values[0].koppen_geiger_zone.slice(0,1);
 
-  console.log(
-    'Ordered suggestions for input of: ' +
-      location.latitude +
-      ' ' +
-      location.longitude +
-      ' ' +
-      property +
-      ' ' +
-      time +
-      ' ' +
-      (potted ? 'pot' : 'garden')
-  );
+    console.log("Ordered suggestions for input of: " + location.latitude + " " + location.longitude + " " + property + " " + time + " " + potted);
 
-  for (let [key, value] of Object.entries(plantData.data)) {
-    if (spaceAvailable(value.space_req, property)) {
-      let index = suggestions.push({ name: value.name, score: 0 }) - 1;
-      if (value.kgz_1.includes(kgz_1User)) {
-        suggestions[index].score = suggestions[index].score + 3;
-      }
-      if (potted) {
-        if (value.pots) {
-          suggestions[index].score = suggestions[index].score + 5;
+    for (let [key, value] of Object.entries(plantData.data)) {
+        if (spaceAvailable(value.space_req, property)) {
+            let index = suggestions.push({name: value.name, score: 0}) - 1;
+            if (value.kgz_1.includes(kgz_1User)) {
+                suggestions[index].score = suggestions[index].score + 3;
+            }
+            if (potted === "pot") {
+                if (value.pots) {
+                    suggestions[index].score = suggestions[index].score + 5;
+                }
+            } else { // ground
+                if (value.garden) {
+                    suggestions[index].score = suggestions[index].score + 5;
+                }
+            }
         }
-      } else {
-        if (value.garden) {
-          suggestions[index].score = suggestions[index].score + 5;
-        }
-      }
     }
-  }
 
   if (suggestions.length == 0) return suggestions;
 
@@ -84,18 +80,29 @@ async function suggestPlants(budget, location, property, time, potted) {
     return suggestions;
   }
 }
+    
 
 // console.log(suggestPlants());
-// console.log(await suggestPlants(0, {latitude: -33.865143, longitude: 151.209900}, "Apartment", 5, true));
-// console.log(await suggestPlants(0, {latitude: -33.865143, longitude: 151.209900}, "House", 5, true));
+// console.log(await suggestPlants(0, {latitude: -33.865143, longitude: 151.209900}, "apartment", 5, pot));
+// console.log(await suggestPlants(0, {latitude: -33.865143, longitude: 151.209900}, "house", 5, pot));
 console.log(
   await suggestPlants(
     0,
     { latitude: -33.865143, longitude: 151.2099 },
-    'House',
+    'house',
     5,
-    false
+    "pot"
   )
 );
+
+console.log(
+    await suggestPlants(
+      0,
+      { latitude: -33.865143, longitude: 151.2099 },
+      'house',
+      5,
+      "ground"
+    )
+  );
 
 export default suggestPlants;
