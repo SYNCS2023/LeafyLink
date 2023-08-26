@@ -213,7 +213,7 @@ const SuggestPlant = () => {
                   name={suggestion[0].name}
                   imageUrl={
                     config.base +
-                    `images/suggestions/` +
+                    `/images/suggestions/` +
                     suggestion[0].name +
                     `.jpg`
                   }
@@ -222,7 +222,7 @@ const SuggestPlant = () => {
                   name={suggestion[1].name}
                   imageUrl={
                     config.base +
-                    `images/suggestions/` +
+                    `/images/suggestions/` +
                     suggestion[1].name +
                     `.jpg`
                   }
@@ -231,7 +231,7 @@ const SuggestPlant = () => {
                   name={suggestion[2].name}
                   imageUrl={
                     config.base +
-                    `images/suggestions/` +
+                    `/images/suggestions/` +
                     suggestion[2].name +
                     `.jpg`
                   }
