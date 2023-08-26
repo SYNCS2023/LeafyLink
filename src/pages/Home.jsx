@@ -10,7 +10,7 @@ const Home = () => {
   );
 
   return <div>
-    <h1 className='font-bold text-3xl'>Urban Gardening</h1>
+    <h1 className='text-5xl font-bold gradient-text'>Urban Gardening</h1>
     <br></br>
     <div className="grid grid-cols-1 gap-4 content-center justify-items-center">
       {plants.map((plant) => (

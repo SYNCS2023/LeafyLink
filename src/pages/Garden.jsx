@@ -9,7 +9,7 @@ const Garden = () => {
 
   return (
     <div>
-      <h1 className='font-bold text-3xl'>Your Garden</h1>
+      <h1 className='text-5xl font-bold gradient-text'>Your Garden</h1>
       <br></br>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 justify-center">
         {plants.map(props => 
