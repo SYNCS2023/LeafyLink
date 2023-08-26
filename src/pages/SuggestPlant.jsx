@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import BackButton from '../components/BackButton';
+import { Link } from 'react-router-dom';
 
 const SuggestPlant = () => {
   const [budget, setBudget] = useState(0);
@@ -123,26 +124,29 @@ const SuggestPlant = () => {
         <li>
           <input
             type='text'
-            placeholder='Location'
+            placeholder='Enter Location'
             className='input input-bordered w-full max-w-xs'
           />
+        </li>
+        <li>or</li>
+        <li>
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.9 }}
+            onClick={handleButtonClick}
+            className={`btn ${
+              loading ? 'bg-gray-300 cursor-not-allowed' : 'btn-primary'
+            }`}
+            disabled={loading}
+          >
+            {loading ? 'Loading...' : 'Get My Location'}
+          </motion.button>
         </li>
       </ul>
       <motion.button
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.9 }}
-        onClick={handleButtonClick}
-        className={`btn ${
-          loading ? 'bg-gray-300 cursor-not-allowed' : 'btn-primary'
-        }`}
-        disabled={loading}
-      >
-        {loading ? 'Loading...' : 'Get My Location'}
-      </motion.button>
-      <motion.button
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.9 }}
-        className='btn btn-accent hover:shadow-lg'
+        className='btn btn-lg btn-accent hover:shadow-lg'
         onClick={() => window.my_modal_5.showModal()}
       >
         Suggest Plant
@@ -151,10 +155,21 @@ const SuggestPlant = () => {
       <dialog id='my_modal_5' className='modal modal-bottom sm:modal-middle'>
         <form method='dialog' className='modal-box'>
           <h3 className='font-bold text-lg'>The best match for you is</h3>
-          <p className='py-4'>Asparagus</p>
-          <div className='modal-action'>
-            <button className='btn'>Close</button>
-          </div>
+          <p className='py-4'>Cucumber</p>
+          <img
+            className='object-cover hover:scale-110 transition duration-500 cursor-pointer py-5'
+            src='public/images/lari.png'
+            alt='public/images/lari.png'
+          />
+          <Link to='/garden'>
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.9 }}
+              className='btn btn-accent hover:shadow-lg'
+            >
+              Add to my garden
+            </motion.button>
+          </Link>
         </form>
       </dialog>
     </div>

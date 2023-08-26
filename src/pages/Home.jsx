@@ -4,7 +4,8 @@ import Menubar from '../components/Menubar';
 
 const Home = () => {
   return <div>
-    <h1 className='text-lg'>Urban Gardening</h1>
+    <h1 className='font-bold text-3xl'>Urban Gardening</h1>
+    <br></br>
     <div className="grid grid-cols-1 gap-4 content-center justify-items-center">
       <div className="flex flex-initial justify-center">
         <Plant name="Ryan" type="Cherry Tomato" img="/images/ryan.jpeg" />
