@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { useState } from 'react';
+import BackButton from '../components/BackButton';
 
 const SuggestPlant = () => {
   const [budget, setBudget] = useState(0);
@@ -10,6 +11,7 @@ const SuggestPlant = () => {
 
   return (
     <div>
+      <BackButton />
       <h1 className='prose'>Suggest a plant for me</h1>
       <p>time: {time}</p>
       <p>property: {property}</p>
