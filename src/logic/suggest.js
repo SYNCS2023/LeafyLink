@@ -22,7 +22,7 @@ function spaceAvailable(spaceReq, property) {
 
 function distanceHarvestTime(plant, time) {
     const harvestTime = plant.harvest_time;
-    let midTime = 1;
+    let midTime = 0;
 
     // via exp dist
 
@@ -149,15 +149,15 @@ async function suggestPlants(budget, location, property, time, potted) {
   });
 
   const max = suggestions[0].score;
-
   const suggestionsMax = suggestions.filter(function (s) {
     return s.score === max;
   });
+
   if (suggestions.length >= 3 && suggestionsMax.length >= 3) {
     const shuffledMax = suggestionsMax.sort(() => 0.5 - Math.random());
     return shuffledMax.slice(0, 3);
   } else {
-    return suggestions;
+    return suggestions.slice(0, 3);
   }
 }
     
