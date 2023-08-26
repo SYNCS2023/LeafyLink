@@ -8,9 +8,8 @@ import ModalQuery from "./ModalQuery";
 const Plant = (props) => {
   const [plants, setPlants] = useState(JSON.parse(localStorage.getItem('plants')));
   const [likes, setLikes] = useState(props.likes);
-
+  let modal;
   
-
   const [animate, setAnimate] = useState(false);
 
   const handleAnimate = () => {
@@ -35,6 +34,15 @@ const Plant = (props) => {
     setPlants(newPlants);
     localStorage.setItem('plants', JSON.stringify(newPlants));
   };
+  console.log(props.type);
+  if (props.type == "Tomato") {
+    console.log("tomato");
+    // modal = ;
+    modal = <div>tomato <ModalQuery /></div>
+  }
+  else {
+    modal = <div>tomato2 <ModalPlain /></div>//;
+  }
 
   return (
     <>
@@ -97,7 +105,7 @@ const Plant = (props) => {
                 </div>
               </div>
               <div className='card-actions justify-end'>
-                {props.type === "Tomato" ? <ModalQuery /> : <ModalPlain />}
+                {modal /* {props.type == "Tomato" ? <ModalQuery /> : <ModalPlain />} */}
               </div>
             </div>
           }

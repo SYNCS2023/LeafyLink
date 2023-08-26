@@ -40,7 +40,7 @@ const helpMsg = [
   </>
 ];
 
-const ModalPlain = (props) => {
+const ModalPlain = () => {
   const [loading, setLoading] = useState(true);
   const [msg, setMsg] = useState(<></>); // troubleshoot msg
  
@@ -74,4 +74,4 @@ const ModalPlain = (props) => {
   )
 }
 
-export default ModalPlain
+export default ModalPlain;
