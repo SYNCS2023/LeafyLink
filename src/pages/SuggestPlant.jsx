@@ -1,7 +1,9 @@
 import { motion } from 'framer-motion';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import BackButton from '../components/BackButton';
 import { Link } from 'react-router-dom';
+import suggestPlants from '../logic/suggest';
+import plantData from '../logic/plantData.json';
 
 const SuggestPlant = () => {
   const [budget, setBudget] = useState(0);
@@ -10,10 +12,20 @@ const SuggestPlant = () => {
   const [time, setTime] = useState('');
   const [potted, setPotted] = useState('');
   const [loading, setLoading] = useState(false);
+  const [suggestion1, setSuggestion1] = useState('');
+  const [suggestion2, setSuggestion2] = useState('');
+  const [suggestion3, setSuggestion3] = useState('');
 
-  useEffect(() => {
+  const doSuggestPlants = () => {
+    console.log('doSuggestPlants');
+    console.log({ budget, location, property, time, potted });
+    console.log(suggestPlants({ budget, location, property, time, potted }));
+    window.my_modal_5.showModal();
+  };
+
+  const getLocation = () => {
     navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
-  }, []);
+  };
 
   function successCallback(position) {
     const { latitude, longitude } = position.coords;
@@ -26,24 +38,21 @@ const SuggestPlant = () => {
 
   const handleButtonClick = async () => {
     setLoading(true);
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+    await new Promise((resolve) => setTimeout(resolve, 500));
     setLoading(false);
+    getLocation();
   };
 
   return (
     <div>
       <BackButton />
-      <h1 className='prose'>Suggest a plant for me</h1>
-      <p>time: {time}</p>
-      <p>property: {property}</p>
-      <p>budget: {budget}</p>
-      <p>potted: {potted}</p>
-      <p>Latitude: {location?.latitude}</p>
-      <p>Longitude: {location?.longitude}</p>
+      <h1 className='font-bold text-3xl py-2 gradient-text'>
+        What are your gardening preferences?
+      </h1>
       <ul>
         <li>
           <select
-            className='select select-bordered w-full max-w-xs'
+            className='select select-bordered w-full max-w-xs my-2'
             onChange={(e) => {
               setProperty(e.target.value);
             }}
@@ -59,13 +68,13 @@ const SuggestPlant = () => {
         </li>
         <li>
           <select
-            className='select select-bordered w-full max-w-xs'
+            className='select select-bordered w-full max-w-xs my-2'
             onChange={(e) => {
               setTime(e.target.value);
             }}
           >
             <option disabled selected>
-              What is the timeframe to harvest your plant?
+              Duration of gardening experience?
             </option>
             <option value='>1'>Less than a month</option>
             <option value='1-3'>1-3 Months</option>
@@ -76,7 +85,7 @@ const SuggestPlant = () => {
         </li>
         <li>
           <select
-            className='select select-bordered w-full max-w-xs'
+            className='select select-bordered w-full max-w-xs my-2'
             onChange={(e) => {
               setBudget(e.target.value);
             }}
@@ -91,8 +100,8 @@ const SuggestPlant = () => {
             <option value='100'>$100+</option>
           </select>
         </li>
-        <li>
-          <div className='form-control'>
+        <li className='flex flex-col justify-center items-center'>
+          <div className='form-control w-full max-w-xs'>
             <label className='label cursor-pointer'>
               <span className='label-text'>Potted Plant</span>
               <input
@@ -106,7 +115,7 @@ const SuggestPlant = () => {
               />
             </label>
           </div>
-          <div className='form-control'>
+          <div className='form-control w-full max-w-xs'>
             <label className='label cursor-pointer'>
               <span className='label-text'>Plant in Ground</span>
               <input
@@ -125,17 +134,24 @@ const SuggestPlant = () => {
           <input
             type='text'
             placeholder='Enter Location'
-            className='input input-bordered w-full max-w-xs'
+            value={
+              location ? `${location.latitude}, ${location.longitude}` : ''
+            }
+            className='input input-bordered w-full max-w-xs my-2'
           />
         </li>
-        <li>or</li>
+        <li className='flex justify-center'>
+          <div className='divider w-full max-w-xs'>OR</div>
+        </li>
         <li>
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.9 }}
             onClick={handleButtonClick}
             className={`btn ${
-              loading ? 'bg-gray-300 cursor-not-allowed' : 'btn-primary'
+              loading
+                ? 'bg-gray-300 cursor-not-allowed'
+                : 'btn-primary btn-outline'
             }`}
             disabled={loading}
           >
@@ -146,8 +162,10 @@ const SuggestPlant = () => {
       <motion.button
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.9 }}
-        className='btn btn-lg btn-accent hover:shadow-lg'
-        onClick={() => window.my_modal_5.showModal()}
+        className='btn btn-lg btn-accent hover:shadow-lg my-4'
+        onClick={() => {
+          doSuggestPlants();
+        }}
       >
         Suggest Plant
       </motion.button>
