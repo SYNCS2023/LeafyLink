@@ -4,7 +4,7 @@ async function getClimateData(latitude, longitude) {
   let response;
   try {
     response = await fetch(
-      'https://climateapi.scottpinkelman.com/api/v1/location/' +
+      'http://climateapi.scottpinkelman.com/api/v1/location/' +
         latitude +
         '/' +
         longitude
