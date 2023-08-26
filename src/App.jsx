@@ -49,7 +49,7 @@ function App() {
     <div className='App grid'>
       <div className='bg-transparent z-50'>
         <Background />
-        <BrowserRouter>
+        <HashRouter>
           <Routes>
             <Route path='/' element={<Home />} />
             <Route path='/garden' element={<Garden />} />
@@ -59,7 +59,7 @@ function App() {
             <Route path='/existing' element={<ExistingPlant />} />
             <Route path='*' element={<NotFound />} />
           </Routes>
-        </BrowserRouter>
+        </HashRouter>
       </div>
     </div>
   );
