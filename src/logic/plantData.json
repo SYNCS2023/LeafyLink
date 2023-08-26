@@ -10,7 +10,8 @@
             "space_req": "L",
             "pots": false,
             "garden": true,
-            "harvest_time": 10
+            "harvest_time": 10,
+            "light_level": ["shade", "partial", "full"]
         },
         "basil": {
             "name": "basil",
@@ -22,7 +23,8 @@
             "space_req": "S",
             "pots": true,
             "garden": true,
-            "harvest_time": 10
+            "harvest_time": 10,
+            "light_level": ["shade", "partial", "full"]
         },
         "bean sprout": {
             "name": "bean sprout",
@@ -34,7 +36,8 @@
             "space_req": "S",
             "pots": true,
             "garden": false,
-            "harvest_time": 10
+            "harvest_time": 10,
+            "light_level": ["shade", "partial", "full"]
         },
         "cabbage": {
             "name": "cabbage",
@@ -46,7 +49,8 @@
             "space_req": "M",
             "pots": false,
             "garden": true,
-            "harvest_time": 10
+            "harvest_time": 10,
+            "light_level": ["shade", "partial", "full"]
         },
         "carrot": {
             "name": "carrot",
@@ -58,7 +62,8 @@
             "space_req": "M",
             "pots": false,
             "garden": true,
-            "harvest_time": 10
+            "harvest_time": 10,
+            "light_level": ["shade", "partial", "full"]
         },
         "celery": {
             "name": "celery",
@@ -70,7 +75,8 @@
             "space_req": "M",
             "pots": false,
             "garden": true,
-            "harvest_time": 10
+            "harvest_time": 10,
+            "light_level": ["shade", "partial", "full"]
         },
         "cherry tomato": {
             "name": "cherry tomato",
@@ -82,7 +88,8 @@
             "space_req": "S",
             "pots": true,
             "garden": true,
-            "harvest_time": 10
+            "harvest_time": 10,
+            "light_level": ["shade", "partial", "full"]
         },
         "chives": {
             "name": "chives",
@@ -94,7 +101,8 @@
             "space_req": "S",
             "pots": true,
             "garden": true,
-            "harvest_time": 10
+            "harvest_time": 10,
+            "light_level": ["shade", "partial", "full"]
         },
         "clinatro": {
             "name": "clinatro",
@@ -106,7 +114,8 @@
             "space_req": "S",
             "pots": true,
             "garden": true,
-            "harvest_time": 10
+            "harvest_time": 10,
+            "light_level": ["shade", "partial", "full"]
         },
         "mango": {
             "name": "mango",
@@ -118,7 +127,8 @@
             "space_req": "L",
             "pots": false,
             "garden": true,
-            "harvest_time": 10
+            "harvest_time": 10,
+            "light_level": ["shade", "partial", "full"]
         },
         "mint": {
             "name": "mint",
@@ -130,7 +140,8 @@
             "space_req": "S",
             "pots": true,
             "garden": true,
-            "harvest_time": 10
+            "harvest_time": 10,
+            "light_level": ["shade", "partial", "full"]
         },
         "orange": {
             "name": "orange",
@@ -142,7 +153,8 @@
             "space_req": "L",
             "pots": false,
             "garden": true,
-            "harvest_time": 10
+            "harvest_time": 10,
+            "light_level": ["shade", "partial", "full"]
         },
         "oregano": {
             "name": "oregano",
@@ -154,7 +166,8 @@
             "space_req": "S",
             "pots": true,
             "garden": true,
-            "harvest_time": 10
+            "harvest_time": 10,
+            "light_level": ["shade", "partial", "full"]
         },
         "parsley": {
             "name": "parsley",
@@ -166,7 +179,8 @@
             "space_req": "S",
             "pots": true,
             "garden": true,
-            "harvest_time": 10
+            "harvest_time": 10,
+            "light_level": ["shade", "partial", "full"]
         },
         "rosemary": {
             "name": "rosemary",
@@ -178,7 +192,8 @@
             "space_req": "S",
             "pots": true,
             "garden": true,
-            "harvest_time": 10
+            "harvest_time": 10,
+            "light_level": ["shade", "partial", "full"]
         },
         "sage": {
             "name": "sage",
@@ -190,7 +205,8 @@
             "space_req": "S",
             "pots": true,
             "garden": true,
-            "harvest_time": 10
+            "harvest_time": 10,
+            "light_level": ["shade", "partial", "full"]
         },
         "strawberry": {
             "name": "strawberry",
@@ -202,7 +218,8 @@
             "space_req": "S",
             "pots": false,
             "garden": true,
-            "harvest_time": 10
+            "harvest_time": 10,
+            "light_level": ["shade", "partial", "full"]
         },
         "thyme": {
             "name": "thyme",
@@ -214,7 +231,8 @@
             "space_req": "S",
             "pots": true,
             "garden": true,
-            "harvest_time": 10
+            "harvest_time": 10,
+            "light_level": ["shade", "partial", "full"]
         }
     }
 }
