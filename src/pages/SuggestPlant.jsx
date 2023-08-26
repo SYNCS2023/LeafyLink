@@ -196,6 +196,12 @@ const SuggestPlant = () => {
       </motion.button>
 
       <dialog id='my_modal_5' className='modal modal-bottom sm:modal-middle'>
+        <div
+          className='modal-backdrop'
+          onClick={() => {
+            document.getElementById('my_modal_5').close();
+          }}
+        ></div>
         <form method='dialog' className='modal-box'>
           {suggestion.length !== 0 ? (
             <>
