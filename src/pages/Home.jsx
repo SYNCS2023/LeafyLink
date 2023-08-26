@@ -22,7 +22,7 @@ const Home = () => {
         />
       </div>
       <br></br>
-      <div className='grid grid-cols-1 gap-4 content-center justify-items-center'>
+      <div className='grid grid-cols-1 gap-4 justify-center'>
         {plants.map((plant) =>
           plant.owned == false ? (
             <div key={plant.id} className='flex flex-initial justify-center'>
