@@ -89,8 +89,12 @@ const Plant = (props) => {
                 <label htmlFor='diary_modal' className='btn btn-primary'>Diary</label>
                 <input type='checkbox' id='diary_modal' className='modal-toggle' />
                 <div className='modal'>
-                  <div className='modal-box max-w-screen-2xl'>
-                    DIARY
+                  <div className='modal-box max-w-screen-2xl text-left'>
+                    <ul>
+                      <li>January 6th 2023: Bought plant from garden store</li>
+                      <li>March 2nd 2023:&nbsp; Moved plant to new location</li>
+                      <li>April 25th 2023:&nbsp;&nbsp; Harvested plant</li>
+                    </ul>
                   </div>
                   <label className='modal-backdrop' htmlFor='diary_modal'>Close</label>
                 </div>
