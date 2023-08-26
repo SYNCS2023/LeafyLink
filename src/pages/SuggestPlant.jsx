@@ -143,9 +143,20 @@ const SuggestPlant = () => {
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.9 }}
         className='btn btn-accent hover:shadow-lg'
+        onClick={() => window.my_modal_5.showModal()}
       >
         Suggest Plant
       </motion.button>
+
+      <dialog id='my_modal_5' className='modal modal-bottom sm:modal-middle'>
+        <form method='dialog' className='modal-box'>
+          <h3 className='font-bold text-lg'>The best match for you is</h3>
+          <p className='py-4'>Asparagus</p>
+          <div className='modal-action'>
+            <button className='btn'>Close</button>
+          </div>
+        </form>
+      </dialog>
     </div>
   );
 };
