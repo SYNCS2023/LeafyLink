@@ -78,11 +78,15 @@ const ExistingPlant = () => {
         <input type="text" placeholder="Enter the name of your plant:" 
         className="input input-bordered w-full max-w-xs" ref={plantNameRef}/>
       </div>
-
+      <div className="p-2 flex min-h-[40vh] items-center justify-center flex-col place-content-center">
       <ImageHandler
-        onCapture={(imageSrc) => setCapturedImage(imageSrc)}
-        onFileChange={(imageSrc) => setCapturedImage(imageSrc)}
+        onCapture={(imageSrc) => {setCapturedImage(imageSrc); setUserImage(true);}}
+        onFileChange={(imageSrc) => {setCapturedImage(imageSrc); setUserImage(true);}}
       />
+      <p className="p-2">Selected image:</p>
+      {capturedImage && <img src={capturedImage} alt="Captured" />}
+      </div>
+      
       <div className="p-2">
         <button className="btn btn-primary" onClick={createPlant}>Next</button>
       </div>

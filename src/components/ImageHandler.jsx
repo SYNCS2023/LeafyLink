@@ -3,11 +3,9 @@ import Webcam from 'react-webcam';
 
 const ImageHandler = ({ onCapture, onFileChange }) => {
   const webcamRef = useRef(null);
-  const [capturedImage, setCapturedImage] = useState(null);
 
   const capture = () => {
     const imageSrc = webcamRef.current.getScreenshot();
-    setCapturedImage(imageSrc);
     onCapture(imageSrc);
   };
 
@@ -15,7 +13,6 @@ const ImageHandler = ({ onCapture, onFileChange }) => {
     const file = event.target.files[0];
     const reader = new FileReader();
     reader.onload = (event) => {
-      setCapturedImage(event.target.result);
       onFileChange(event.target.result);
     };
     reader.readAsDataURL(file);
@@ -37,8 +34,6 @@ const ImageHandler = ({ onCapture, onFileChange }) => {
           onChange={handleFileChange}
         />
       </div>
-      <p className="p-2">Selected image:</p>
-      {capturedImage && <img src={capturedImage} alt="Captured" />}
     </div>
   );
 };
