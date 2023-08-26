@@ -117,17 +117,29 @@ const Plant = (props) => {
             </div>
           </div>
           {props.owned &&
-            <div className='card-actions justify-end'>
-              <label htmlFor='my_modal' className='btn btn-primary'>Troubleshoot</label>
-              <input type='checkbox' id='my_modal' className='modal-toggle' onClick={() => loadTroubleshoot()} />
-              <div className='modal'>
-                <div className='modal-box max-w-screen-2xl'>
-                  {loading ? 
-                    <span className="loading loading-spinner loading-lg text-center"></span> :
-                    <div className="text-left">{msg}</div>
-                  }
+            <div className='flex content-between'>
+              <div className='card-actions justify-start'>
+                <label htmlFor='diary_modal' className='btn btn-primary'>Diary</label>
+                <input type='checkbox' id='diary_modal' className='modal-toggle' />
+                <div className='modal'>
+                  <div className='modal-box max-w-screen-2xl'>
+                    DIARY
+                  </div>
+                  <label className='modal-backdrop' htmlFor='diary_modal'>Close</label>
                 </div>
-                <label className='modal-backdrop' htmlFor='my_modal'>Close</label>
+              </div>
+              <div className='card-actions justify-end'>
+                <label htmlFor='my_modal' className='btn btn-primary'>Troubleshoot</label>
+                <input type='checkbox' id='my_modal' className='modal-toggle' onClick={() => loadTroubleshoot()} />
+                <div className='modal'>
+                  <div className='modal-box max-w-screen-2xl'>
+                    {loading ? 
+                      <span className="loading loading-spinner loading-lg text-center"></span> :
+                      <div className="text-left">{msg}</div>
+                    }
+                  </div>
+                  <label className='modal-backdrop' htmlFor='my_modal'>Close</label>
+                </div>
               </div>
             </div>
           }
