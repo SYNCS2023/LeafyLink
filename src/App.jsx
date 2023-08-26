@@ -6,6 +6,7 @@ import Quiz from './pages/Quiz';
 import NotFound from './pages/NotFound';
 import SuggestPlant from './pages/SuggestPlant';
 import ExistingPlant from './pages/ExistingPlant';
+import AppContextProvider from './contexts/appContext';
 
 function App() {
   return (

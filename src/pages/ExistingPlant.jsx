@@ -1,10 +1,9 @@
-import Webcam from 'react-webcam';
 
 const ExistingPlant = () => {
   return (
     <div>
       <p>existing plant</p>
-      <Webcam />
+      <input accept="image/*" id="icon-button-file" type="file" capture="environment" />
     </div>
   );
 };
