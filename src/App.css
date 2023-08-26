@@ -49,9 +49,16 @@ body {
   scrollbar-width: none;  /* Firefox */
 }
 
+html.dark body {
+  background: linear-gradient(223deg, #1c1c1c, #1f1d1d);
+}
+
 @media (prefers-color-scheme: dark) {
   body {
     background: linear-gradient(223deg, #1c1c1c, #1f1d1d);
+  }
+  html.light body {
+    background: linear-gradient(223deg, #e7faf9, #e5fcf7);
   }
 }
 

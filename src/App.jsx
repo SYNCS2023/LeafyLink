@@ -8,10 +8,14 @@ import SuggestPlant from './pages/SuggestPlant';
 import ExistingPlant from './pages/ExistingPlant';
 import AppContextProvider from './contexts/appContext';
 import FinalSuggestion from './pages/FinalSuggestion';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import defaultPlantData from './assets/defaultPlants.json'
 
 function App() {
+  const [theme, setTheme] = useState(
+    (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) ? "dark" : "light"
+  );
+
   useEffect(() => {
     if (localStorage.getItem('plants') === null) {
       localStorage.setItem('plants', JSON.stringify(defaultPlantData));
@@ -19,8 +23,30 @@ function App() {
     }
   }, []); 
 
+  useEffect(() => {
+    document.querySelector("html").setAttribute("data-theme", theme);
+    if (theme === "dark") {
+      document.querySelector("html").classList.add("dark");
+      document.querySelector("html").classList.remove("light");
+    } else {
+      document.querySelector("html").classList.remove("dark");
+      document.querySelector("html").classList.add("light");
+    }
+  }, [theme]);
+
+  function handleThemeChange() {
+    if (theme === "dark") {
+      setTheme("light");
+      localStorage.setItem('theme', 'light');
+    } else {
+      setTheme("dark");
+      localStorage.setItem('theme', 'dark');
+    }
+  }
+
   return (
     <>
+      <input type="checkbox" id="theme-toggle" className="toggle absolute right-2 top-2" onChange={handleThemeChange} checked={theme === "dark"} />
       <BrowserRouter>
         <Routes>
           <Route path='/' element={<Home />} />
