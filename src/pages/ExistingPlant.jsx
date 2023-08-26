@@ -1,9 +1,11 @@
 import Webcam from "react-webcam";
+import BackButton from "../components/BackButton";
 
 
 const ExistingPlant = () => {
   return (
     <div>
+      <BackButton />
       <div>
         <p>Add an existing plant</p>
       </div>
