@@ -1,7 +1,7 @@
 {
     "data": {
         "avocado": {
-            "name": "Avocado",
+            "name": "avocado",
             "kgz_1": ["A", "C", "D"],
             "kgz_2": "",
             "kgz_3": "",
@@ -9,7 +9,9 @@
             "description": "placeholder placeholder placeholder placeholder placeholder ",
             "space_req": "L",
             "pots": false,
-            "garden": true
+            "garden": true,
+            "harvest_time": 10,
+            "light_level": ["shade", "partial", "full"]
         },
         "basil": {
             "name": "basil",
@@ -20,7 +22,9 @@
             "description": "placeholder placeholder placeholder placeholder placeholder ",
             "space_req": "S",
             "pots": true,
-            "garden": true
+            "garden": true,
+            "harvest_time": 10,
+            "light_level": ["shade", "partial", "full"]
         },
         "bean sprout": {
             "name": "bean sprout",
@@ -31,7 +35,9 @@
             "description": "placeholder placeholder placeholder placeholder placeholder ",
             "space_req": "S",
             "pots": true,
-            "garden": false
+            "garden": false,
+            "harvest_time": 10,
+            "light_level": ["shade", "partial", "full"]
         },
         "cabbage": {
             "name": "cabbage",
@@ -42,7 +48,9 @@
             "description": "placeholder placeholder placeholder placeholder placeholder ",
             "space_req": "M",
             "pots": false,
-            "garden": true
+            "garden": true,
+            "harvest_time": 10,
+            "light_level": ["shade", "partial", "full"]
         },
         "carrot": {
             "name": "carrot",
@@ -53,7 +61,9 @@
             "description": "placeholder placeholder placeholder placeholder placeholder ",
             "space_req": "M",
             "pots": false,
-            "garden": true
+            "garden": true,
+            "harvest_time": 10,
+            "light_level": ["shade", "partial", "full"]
         },
         "celery": {
             "name": "celery",
@@ -64,7 +74,9 @@
             "description": "placeholder placeholder placeholder placeholder placeholder ",
             "space_req": "M",
             "pots": false,
-            "garden": true
+            "garden": true,
+            "harvest_time": 10,
+            "light_level": ["shade", "partial", "full"]
         },
         "cherry tomato": {
             "name": "cherry tomato",
@@ -75,7 +87,9 @@
             "description": "placeholder placeholder placeholder placeholder placeholder ",
             "space_req": "S",
             "pots": true,
-            "garden": true
+            "garden": true,
+            "harvest_time": 10,
+            "light_level": ["shade", "partial", "full"]
         },
         "chives": {
             "name": "chives",
@@ -86,7 +100,9 @@
             "description": "placeholder placeholder placeholder placeholder placeholder ",
             "space_req": "S",
             "pots": true,
-            "garden": true
+            "garden": true,
+            "harvest_time": 10,
+            "light_level": ["shade", "partial", "full"]
         },
         "clinatro": {
             "name": "clinatro",
@@ -97,7 +113,9 @@
             "description": "placeholder placeholder placeholder placeholder placeholder ",
             "space_req": "S",
             "pots": true,
-            "garden": true
+            "garden": true,
+            "harvest_time": 10,
+            "light_level": ["shade", "partial", "full"]
         },
         "mango": {
             "name": "mango",
@@ -108,7 +126,9 @@
             "description": "placeholder placeholder placeholder placeholder placeholder ",
             "space_req": "L",
             "pots": false,
-            "garden": true
+            "garden": true,
+            "harvest_time": 10,
+            "light_level": ["shade", "partial", "full"]
         },
         "mint": {
             "name": "mint",
@@ -119,7 +139,9 @@
             "description": "placeholder placeholder placeholder placeholder placeholder ",
             "space_req": "S",
             "pots": true,
-            "garden": true
+            "garden": true,
+            "harvest_time": 10,
+            "light_level": ["shade", "partial", "full"]
         },
         "orange": {
             "name": "orange",
@@ -130,7 +152,9 @@
             "description": "placeholder placeholder placeholder placeholder placeholder ",
             "space_req": "L",
             "pots": false,
-            "garden": true
+            "garden": true,
+            "harvest_time": 10,
+            "light_level": ["shade", "partial", "full"]
         },
         "oregano": {
             "name": "oregano",
@@ -141,7 +165,9 @@
             "description": "placeholder placeholder placeholder placeholder placeholder ",
             "space_req": "S",
             "pots": true,
-            "garden": true
+            "garden": true,
+            "harvest_time": 10,
+            "light_level": ["shade", "partial", "full"]
         },
         "parsley": {
             "name": "parsley",
@@ -152,7 +178,9 @@
             "description": "placeholder placeholder placeholder placeholder placeholder ",
             "space_req": "S",
             "pots": true,
-            "garden": true
+            "garden": true,
+            "harvest_time": 10,
+            "light_level": ["shade", "partial", "full"]
         },
         "rosemary": {
             "name": "rosemary",
@@ -163,7 +191,9 @@
             "description": "placeholder placeholder placeholder placeholder placeholder ",
             "space_req": "S",
             "pots": true,
-            "garden": true
+            "garden": true,
+            "harvest_time": 10,
+            "light_level": ["shade", "partial", "full"]
         },
         "sage": {
             "name": "sage",
@@ -174,7 +204,9 @@
             "description": "placeholder placeholder placeholder placeholder placeholder ",
             "space_req": "S",
             "pots": true,
-            "garden": true
+            "garden": true,
+            "harvest_time": 10,
+            "light_level": ["shade", "partial", "full"]
         },
         "strawberry": {
             "name": "strawberry",
@@ -185,7 +217,9 @@
             "description": "placeholder placeholder placeholder placeholder placeholder ",
             "space_req": "S",
             "pots": false,
-            "garden": true
+            "garden": true,
+            "harvest_time": 10,
+            "light_level": ["shade", "partial", "full"]
         },
         "thyme": {
             "name": "thyme",
@@ -196,7 +230,9 @@
             "description": "placeholder placeholder placeholder placeholder placeholder ",
             "space_req": "S",
             "pots": true,
-            "garden": true
+            "garden": true,
+            "harvest_time": 10,
+            "light_level": ["shade", "partial", "full"]
         }
     }
 }

@@ -1,47 +1,57 @@
 [
     {
         "id": 1,
-        "img": "/images/lari.png",
-        "type": "Cucumber",
-        "age": 0, 
-        "likes": 133,
-        "owned": true,
-        "name": "Lari"
+        "img": "/images/banana.png",
+        "type": "Banana",
+        "age": 25, 
+        "likes": 5,
+        "owned": false,
+        "name": "Banana Plantation",
+        "user": "Lari",
+        "description": "Just harvested 5 bananas from my banana tree. They are delicious!"
     },
     {
         "id": 2,
-        "img": "/images/ryan.jpeg",
-        "type": "Tomato",
-        "age": 1, 
-        "likes": 133,
-        "owned": true,
-        "name": "Ryan"
+        "img": "/images/apple.png",
+        "type": "Apple",
+        "age": 200, 
+        "likes": 4,
+        "owned": false,
+        "name": "Frontyard Apple tree",
+        "user": "Luke",
+        "description": "I have a beautiful apple tree in my front yard."
     },
     {
         "id": 3,
-        "img": "/images/luke.png",
-        "type": "Potato",
-        "age": 2, 
+        "img": "/images/grape.png",
+        "type": "Grape",
+        "age": 200, 
         "likes": 133,
-        "owned": true,
-        "name": "Luke"
+        "owned": false,
+        "name": "Winery Grape Vine",
+        "user": "Hunter Valley Vineyards",
+        "description": "We grow the best grapes in the Hunter Valley!"
     },
     {
         "id": 4,
-        "img": "/images/wanning.jpg",
-        "type": "Artichoke",
-        "age": 3, 
-        "likes": 113,
+        "img": "/images/melon.png",
+        "type": "Melon",
+        "age": 37, 
+        "likes": 1,
         "owned": true,
-        "name": "Wanning"
+        "name": "Melon Patch",
+        "user": "self",
+        "description": "self"
     },
     {
         "id": 5,
-        "img": "/images/haowen.webp",
-        "type": "Mandarin",
-        "age": 4, 
+        "img": "/images/strawberry.png",
+        "type": "Strawberry",
+        "age": 43, 
         "likes": 37,
         "owned": true,
-        "name": "Haowen"
+        "name": "Strawberry Fields",
+        "user": "self",
+        "description": "self"
     }
 ]
