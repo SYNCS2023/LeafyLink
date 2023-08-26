@@ -15,10 +15,10 @@ const Garden = () => {
         </div>
         <div className="flex flex-initial justify-center">
           <Plant name="Luke" type="Potato" likes="133" img="/images/luke.png" age={2} owned={true} />
-        // </div>
+        </div>
         <div className="flex flex-initial justify-center">
           <Plant name="Wanning" type="Artichoke" likes="113" img="/images/wanning.jpg" age={3} owned={true} />
-        // </div>
+        </div>
         <div className="flex flex-initial justify-center">
           <Plant name="Haowen" type="Mandarin" likes="113" img="/images/haowen.webp" age={4} owned={true} />
         </div>
