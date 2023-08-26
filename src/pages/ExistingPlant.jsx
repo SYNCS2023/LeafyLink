@@ -1,5 +1,12 @@
+import Webcam from 'react-webcam';
+
 const ExistingPlant = () => {
-  return <div>ExistingPlant</div>;
+  return (
+    <div>
+      <p>existing plant</p>
+      <Webcam />
+    </div>
+  );
 };
 
 export default ExistingPlant;
