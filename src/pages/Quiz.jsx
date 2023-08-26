@@ -8,7 +8,7 @@ const Quiz = () => {
       <h1 className='text-5xl font-bold gradient-text pb-2'>
         Bring a new life to your garden!
       </h1>
-      <div className='flex h-full flex-col items-center align-middle justify-center space-y-5'>
+      <div className='flex flex-col items-center justify-center space-y-5' style={{ height: '70vh' }}>
         <Link to='/new'>
           <motion.button
             whileHover={{ scale: 1.05 }}
