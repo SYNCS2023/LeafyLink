@@ -7,23 +7,27 @@ const ExistingPlant = () => {
   const [plants, setPlants] = useState(JSON.parse(localStorage.getItem('plants')));
   const plantTypeRef = useRef();
   const plantNameRef = useRef();
-  const plantImageRef = useRef();
+  const webcamRef = useRef(null);
+  const [capturedImage, setCapturedImage] = useState(null);
 
-  const convertToBase64 = (file) => {
-    return new Promise((resolve, reject) => {
-      const reader = new FileReader();
-      reader.readAsDataURL(file);
-
-      reader.onload = () => {
-        resolve(reader.result.split(',')[1]);
-      };
-
-      reader.onerror = (error) => {
-        reject(error);
-      };
-    });
+  const capture = () => {
+    const imageSrc = webcamRef.current.getScreenshot();
+    setCapturedImage(imageSrc);
   };
 
+  const handleFileChange = (event_main) => {
+    const reader = new FileReader();
+    reader.onload = (event) => {
+      setCapturedImage(event.target.result);
+    };
+    reader.readAsDataURL(event_main.target.files[0]);
+  };
+  const plantTypeChanged = (event) => {
+    if (!capturedImage) {
+      setCapturedImage('/images/apple.png');
+    }
+  };
+  
   const createPlant = async () => {
     var newPlants = plants;
     let imageStr = await convertToBase64(plantImageRef.current.files[0]);
@@ -52,16 +56,9 @@ const ExistingPlant = () => {
       <div>
         <p>Add an existing plant</p>
       </div>
-      <div className="p-2 flex min-h-[40vh] items-center flex-col place-content-center">
-        <div className="p-2"><Webcam /></div>
-        <div>
-          <input type="file" className="file-input w-full max-w-xs align-middle" accept="image/*" capture="environment" 
-          ref={plantImageRef}/>
-        </div>
-      </div>
       <div className="p-2">
         <select className='select select-bordered w-full max-w-xs' defaultValue={"Select your plant..."}
-              ref={plantTypeRef}>
+              ref={plantTypeRef} onChange={plantTypeChanged}>
           <option disabled>Select your plant...</option>
           <option>Plant a</option>
           <option>Plant b</option>
@@ -72,6 +69,18 @@ const ExistingPlant = () => {
       <div className="p-2">
         <input type="text" placeholder="Enter the name of your plant:" 
         className="input input-bordered w-full max-w-xs" ref={plantNameRef}/>
+      </div>
+
+      <div className="p-2 flex min-h-[40vh] items-center justify-center flex-col place-content-center">
+          <p className="p-2">Provide an image of your plant:</p>
+          <Webcam ref={webcamRef} screenshotFormat="image/jpeg"  />
+          <div className="flex flex-row items-center justify-center place-content-center p-2">
+          <button className="btn btn-primary" onClick={capture}>Capture</button>
+          <p>&nbsp;OR&nbsp;</p>
+          <input type="file" className="file-input w-full max-w-xs align-middle" accept="image/*" onChange={handleFileChange} />
+          </div>
+          <p className="p-2">Selected image:</p>
+          {capturedImage && <img src={capturedImage} alt="Captured" />}
       </div>
       <div className="p-2">
         <button className="btn btn-primary" onClick={createPlant}>Next</button>
