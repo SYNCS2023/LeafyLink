@@ -15,37 +15,12 @@ import { config } from './logic/constants';
 import Debug from './pages/Debug';
 
 function App() {
-  const [theme, setTheme] = useState(
-    (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) ? "dark" : "light"
-  );
-
   useEffect(() => {
     if (localStorage.getItem('plants') === null) {
       localStorage.setItem('plants', JSON.stringify(defaultPlantData));
       console.log('Setting default plant DB.');
     }
   }, []);
-
-  useEffect(() => {
-    document.querySelector("html").setAttribute("data-theme", theme);
-    if (theme === "dark") {
-      document.querySelector("html").classList.add("dark");
-      document.querySelector("html").classList.remove("light");
-    } else {
-      document.querySelector("html").classList.remove("dark");
-      document.querySelector("html").classList.add("light");
-    }
-  }, [theme]);
-
-  function handleThemeChange() {
-    if (theme === "dark") {
-      setTheme("light");
-      localStorage.setItem('theme', 'light');
-    } else {
-      setTheme("dark");
-      localStorage.setItem('theme', 'dark');
-    }
-  }
 
   return (
     <div className='App grid'>
