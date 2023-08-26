@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDroplet } from '@fortawesome/free-solid-svg-icons';
-
+import { config } from '../logic/constants';
 
 const randChoice = (arr) => arr[Math.floor(Math.random() * arr.length)];
 
@@ -90,7 +90,7 @@ const Plant = (props) => {
         <figure className='h-60'>
           <img
             className='object-cover hover:scale-110 transition duration-500 cursor-pointer'
-            src={props.img}
+            src={config.base + props.img}
             alt={props.type}
           />
           {(() => {
