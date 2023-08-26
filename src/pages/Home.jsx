@@ -13,11 +13,11 @@ const Home = () => {
     <h1 className='text-5xl font-bold gradient-text'>Urban Gardening</h1>
     <br></br>
     <div className="grid grid-cols-1 gap-4 content-center justify-items-center">
-      {plants.map((plant) => (
+      {plants.map((plant) => (plant.owned == false) ? (
         <div key={plant.id} className="flex flex-initial justify-center">
-          <Plant name={plant.name} type={plant.type} img={plant.img} likes={plant.likes} id={plant.id} />
+          <Plant {...plant} home={true} />
         </div>
-      ))}
+      ) : null )}
     </div>
     <Menubar active="home" />
   </div>;

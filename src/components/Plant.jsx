@@ -93,28 +93,44 @@ const Plant = (props) => {
             src={props.img}
             alt={props.type}
           />
-        </figure>
-        <div className='card-body'>
-          <h2 className='card-title mb-0 text-primary text-2xl'>
-            {props.name}
-            {(() => {
+          {(() => {
+            if (props.home === undefined) {
               if (props.age === undefined) {
                 return <></>
               } else if (props.age <= 0) {
-                return <div className='badge badge-secondary'>NEW</div>
+                return <div className='badge badge-secondary absolute right-3 top-3 h-fit'>NEW</div>
               } else {
-                return <div className='badge badge-primary h-fit'>{props.age === 1 ? '1 DAY OLD' : `${props.age} DAYS OLD`}</div>
+                return <div className='badge badge-primary absolute right-3 top-3 h-fit'>{props.age === 1 ? '1 DAY OLD' : `${props.age} DAYS OLD`}</div>
+              }
+            } else if (props.home === true) {
+              return <div className='badge badge-primary absolute right-3 top-3 h-fit'>{props.user}</div>
+            } else {
+              return <></>
+            }
+            })()}
+        </figure>
+        <div className='card-body'>
+        <div className='flex items-center justify-between'>
+          <h2 className='card-title mb-0 text-primary text-2xl'>
+            {props.name} 
+          </h2>
+          <div className='float-right'>
+            {(() => {
+              if (props.home == true) {
+                return (
+                  <>
+                    {likes || 0}&nbsp;
+                    <button onClick={() => (handleAnimate())}>
+                      <FontAwesomeIcon icon={faDroplet} style={{color: 'primary'}} className={animate ? 'animate-bounce' : ''} />
+                    </button>
+                  </>
+                )
               }
             })()}
-          </h2>
-          <div className='align-left text-left text-justify text-lg'>
-            {props.type}
-            <div className='float-right'>
-              {`${likes || 0}`} 
-                &nbsp;<button onClick={() => (handleAnimate())}>
-                <FontAwesomeIcon icon={faDroplet} style={{color: 'primary'}} className={animate ? 'animate-bounce' : ''} />
-              </button>
-            </div>
+          </div>
+        </div>
+          <div className='align-left text-left text-lg'>
+            {(props.home == true) ? props.description : props.type} 
           </div>
           {props.owned &&
             <div className='flex content-between'>
