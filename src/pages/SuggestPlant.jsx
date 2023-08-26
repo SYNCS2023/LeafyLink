@@ -3,7 +3,7 @@ import { useState } from 'react';
 
 const SuggestPlant = () => {
   const [budget, setBudget] = useState(0);
-  const [location, setLocation] = useState([]);
+  const [location, setLocation] = useState('');
   const [property, setProperty] = useState('');
   const [time, setTime] = useState('');
   const [potted, setPotted] = useState('');
@@ -14,6 +14,7 @@ const SuggestPlant = () => {
       <p>time: {time}</p>
       <p>property: {property}</p>
       <p>budget: {budget}</p>
+      <p></p>
       <ul>
         <li>
           <select
@@ -72,8 +73,8 @@ const SuggestPlant = () => {
               <input
                 type='radio'
                 name='radio-10'
-                className='radio checked:bg-red-500'
-                checked
+                className='radio checked:bg-primary'
+                checked={potted === 'pot'}
               />
             </label>
           </div>
@@ -83,8 +84,8 @@ const SuggestPlant = () => {
               <input
                 type='radio'
                 name='radio-10'
-                className='radio checked:bg-blue-500'
-                checked
+                className='radio checked:bg-primary'
+                checked={potted === 'ground'}
               />
             </label>
           </div>
