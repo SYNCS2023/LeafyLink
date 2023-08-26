@@ -30,11 +30,11 @@ const ExistingPlant = () => {
   
   const createPlant = async () => {
     var newPlants = plants;
-    let imageStr = await convertToBase64(plantImageRef.current.files[0]);
+    let imageStr = capturedImage
     let nextId = Math.max.apply(Math, plants.map(function(o) { return o.id; })) + 1;
     let addedPlant = {
       "id": nextId,
-      "img": `data:image/png;base64,${imageStr}`,
+      "img": capturedImage,
       "type": plantTypeRef.current.value,
       "age": 0, 
       "likes": 0,
@@ -48,6 +48,14 @@ const ExistingPlant = () => {
     localStorage.setItem('plants', JSON.stringify(newPlants));
 
     window.location.href = "/garden";
+
+  //   console.log(await (await fetch('/api/predict_image', {
+  //     method: 'PUT',
+  //     headers: {
+  //         'Content-Type': 'application/json'
+  //     },
+  //     body: JSON.stringify({"image_data": capturedImage})
+  // })).json());
   };
 
   return (
