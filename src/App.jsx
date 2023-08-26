@@ -50,7 +50,7 @@ function App() {
     <div className='App grid'>
       <div className='bg-transparent z-50'>
         <Background />
-        <HashRouter basename={config.base}>
+        <HashRouter>
           <Routes>
             <Route path='/' element={<Home />} />
             <Route path='/garden' element={<Garden />} />
