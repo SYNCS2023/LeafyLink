@@ -1,0 +1,180 @@
+{
+    "data": {
+        "avocado": {
+            "name": "avocado",
+            "kgz_1": ["A", "C", "D"],
+            "kgz_2": "",
+            "kgz_3": "",
+            "image_url": "https://i.pinimg.com/originals/fe/d2/6d/fed26da97c5d28883d8dc8b9b3ca14c2.png",
+            "description": "placeholder placeholder placeholder placeholder placeholder ",
+            "space_req": "L",
+            "pots": false,
+            "garden": true
+        },
+        "basil": {
+            "name": "basil",
+            "kgz_1": ["C"],
+            "kgz_2": "",
+            "kgz_3": "",
+            "image_url": "https://i.pinimg.com/originals/fe/d2/6d/fed26da97c5d28883d8dc8b9b3ca14c2.png",
+            "description": "placeholder placeholder placeholder placeholder placeholder ",
+            "space_req": "S",
+            "pots": true,
+            "garden": true
+        },
+        "cabbage": {
+            "name": "cabbage",
+            "kgz_1": ["C", "D"],
+            "kgz_2": "",
+            "kgz_3": "",
+            "image_url": "https://i.pinimg.com/originals/fe/d2/6d/fed26da97c5d28883d8dc8b9b3ca14c2.png",
+            "description": "placeholder placeholder placeholder placeholder placeholder ",
+            "space_req": "M",
+            "pots": false,
+            "garden": true
+        },
+        "carrot": {
+            "name": "carrot",
+            "kgz_1": ["A", "C", "D"],
+            "kgz_2": "",
+            "kgz_3": "",
+            "image_url": "https://i.pinimg.com/originals/fe/d2/6d/fed26da97c5d28883d8dc8b9b3ca14c2.png",
+            "description": "placeholder placeholder placeholder placeholder placeholder ",
+            "space_req": "M",
+            "pots": false,
+            "garden": true
+        },
+        "celery": {
+            "name": "celery",
+            "kgz_1": ["B", "C", "D"],
+            "kgz_2": "",
+            "kgz_3": "",
+            "image_url": "https://i.pinimg.com/originals/fe/d2/6d/fed26da97c5d28883d8dc8b9b3ca14c2.png",
+            "description": "placeholder placeholder placeholder placeholder placeholder ",
+            "space_req": "M",
+            "pots": false,
+            "garden": true
+        },
+        "cherry tomato": {
+            "name": "cherry tomato",
+            "kgz_1": ["A", "C"],
+            "kgz_2": "",
+            "kgz_3": "",
+            "image_url": "https://i.pinimg.com/originals/fe/d2/6d/fed26da97c5d28883d8dc8b9b3ca14c2.png",
+            "description": "placeholder placeholder placeholder placeholder placeholder ",
+            "space_req": "S",
+            "pots": true,
+            "garden": true
+        },
+        "chives": {
+            "name": "chives",
+            "kgz_1": ["A", "B", "C", "D"],
+            "kgz_2": "",
+            "kgz_3": "",
+            "image_url": "https://i.pinimg.com/originals/fe/d2/6d/fed26da97c5d28883d8dc8b9b3ca14c2.png",
+            "description": "placeholder placeholder placeholder placeholder placeholder ",
+            "space_req": "S",
+            "pots": true,
+            "garden": true
+        },
+        "clinatro": {
+            "name": "clinatro",
+            "kgz_1": ["A", "C"],
+            "kgz_2": "",
+            "kgz_3": "",
+            "image_url": "https://i.pinimg.com/originals/fe/d2/6d/fed26da97c5d28883d8dc8b9b3ca14c2.png",
+            "description": "placeholder placeholder placeholder placeholder placeholder ",
+            "space_req": "S",
+            "pots": true,
+            "garden": true
+        },
+        "mint": {
+            "name": "mint",
+            "kgz_1": ["A", "C"],
+            "kgz_2": "",
+            "kgz_3": "",
+            "image_url": "https://i.pinimg.com/originals/fe/d2/6d/fed26da97c5d28883d8dc8b9b3ca14c2.png",
+            "description": "placeholder placeholder placeholder placeholder placeholder ",
+            "space_req": "S",
+            "pots": true,
+            "garden": true
+        },
+        "orange": {
+            "name": "orange",
+            "kgz_1": ["A", "C"],
+            "kgz_2": "",
+            "kgz_3": "",
+            "image_url": "https://i.pinimg.com/originals/fe/d2/6d/fed26da97c5d28883d8dc8b9b3ca14c2.png",
+            "description": "placeholder placeholder placeholder placeholder placeholder ",
+            "space_req": "L",
+            "pots": false,
+            "garden": true
+        },
+        "oregano": {
+            "name": "oregano",
+            "kgz_1": ["A", "B", "C", "D"],
+            "kgz_2": "",
+            "kgz_3": "",
+            "image_url": "https://i.pinimg.com/originals/fe/d2/6d/fed26da97c5d28883d8dc8b9b3ca14c2.png",
+            "description": "placeholder placeholder placeholder placeholder placeholder ",
+            "space_req": "S",
+            "pots": true,
+            "garden": true
+        },
+        "parsley": {
+            "name": "parsley",
+            "kgz_1": ["A", "B", "C", "D"],
+            "kgz_2": "",
+            "kgz_3": "",
+            "image_url": "https://i.pinimg.com/originals/fe/d2/6d/fed26da97c5d28883d8dc8b9b3ca14c2.png",
+            "description": "placeholder placeholder placeholder placeholder placeholder ",
+            "space_req": "S",
+            "pots": true,
+            "garden": true
+        },
+        "rosemary": {
+            "name": "rosemary",
+            "kgz_1": ["B", "C", "D"],
+            "kgz_2": "",
+            "kgz_3": "",
+            "image_url": "https://i.pinimg.com/originals/fe/d2/6d/fed26da97c5d28883d8dc8b9b3ca14c2.png",
+            "description": "placeholder placeholder placeholder placeholder placeholder ",
+            "space_req": "S",
+            "pots": true,
+            "garden": true
+        },
+        "sage": {
+            "name": "sage",
+            "kgz_1": ["B", "C", "D"],
+            "kgz_2": "",
+            "kgz_3": "",
+            "image_url": "https://i.pinimg.com/originals/fe/d2/6d/fed26da97c5d28883d8dc8b9b3ca14c2.png",
+            "description": "placeholder placeholder placeholder placeholder placeholder ",
+            "space_req": "S",
+            "pots": true,
+            "garden": true
+        },
+        "strawberry": {
+            "name": "strawberry",
+            "kgz_1": ["B", "D"],
+            "kgz_2": "",
+            "kgz_3": "",
+            "image_url": "https://i.pinimg.com/originals/fe/d2/6d/fed26da97c5d28883d8dc8b9b3ca14c2.png",
+            "description": "placeholder placeholder placeholder placeholder placeholder ",
+            "space_req": "S",
+            "pots": false,
+            "garden": true
+        },
+        "thyme": {
+            "name": "thyme",
+            "kgz_1": ["A", "B", "C", "D"],
+            "kgz_2": "",
+            "kgz_3": "",
+            "image_url": "https://i.pinimg.com/originals/fe/d2/6d/fed26da97c5d28883d8dc8b9b3ca14c2.png",
+            "description": "placeholder placeholder placeholder placeholder placeholder ",
+            "space_req": "S",
+            "pots": true,
+            "garden": true
+        }
+    }
+}
