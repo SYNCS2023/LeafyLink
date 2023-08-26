@@ -2,6 +2,7 @@ import { useState } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDroplet } from '@fortawesome/free-solid-svg-icons';
 
+
 const randChoice = (arr) => arr[Math.floor(Math.random() * arr.length)];
 
 const helpMsg = [
@@ -43,8 +44,10 @@ const helpMsg = [
 
 
 const Plant = (props) => {
+  const [plants, setPlants] = useState(JSON.parse(localStorage.getItem('plants')));
   const [loading, setLoading] = useState(false);
   const [msg, setMsg] = useState(<></>); // troubleshoot msg
+  const [likes, setLikes] = useState(props.likes);
 
   // "AI generates troubleshoot msg" for 1.5 seconds :]
   // this has unintended behaviour when troubleshoot button clicked too frequently
@@ -54,6 +57,31 @@ const Plant = (props) => {
       setLoading(false);
       setMsg(randChoice(helpMsg));
     }, 1500);
+  };
+
+  const [animate, setAnimate] = useState(false);
+
+  const handleAnimate = () => {
+    setAnimate(true);
+    updatePlant();
+    setTimeout(() => {
+      setAnimate(false);
+    }, 500); // Reset bounce after 1 second
+  };
+
+  const updatePlant = () => {
+    let plant = plants.find((p) => p.id === props.id);
+    plant.likes += 1;
+    setLikes(likes + 1);
+    const newPlants = plants.map((p) => {
+      if (p.id === plant.id) {
+        return plant;
+      } else {
+        return p;
+      }
+    });
+    setPlants(newPlants);
+    localStorage.setItem('plants', JSON.stringify(newPlants));
   };
 
   return (
@@ -81,20 +109,37 @@ const Plant = (props) => {
           </h2>
           <div className='align-left text-left text-justify uppercase text-lg'>
             {props.type}
-            <div className='float-right'>{`${props.likes || 0}`} <FontAwesomeIcon icon={faDroplet} /></div>
+            <div className='float-right'>
+              {`${likes || 0}`} 
+                &nbsp;<button onClick={() => (handleAnimate())}>
+                <FontAwesomeIcon icon={faDroplet} style={{color: 'primary'}} className={animate ? 'animate-bounce' : ''} />
+              </button>
+            </div>
           </div>
           {props.owned &&
-            <div className='card-actions justify-end'>
-              <label htmlFor='my_modal' className='btn btn-primary'>Troubleshoot</label>
-              <input type='checkbox' id='my_modal' className='modal-toggle' onClick={() => loadTroubleshoot()} />
-              <div className='modal'>
-                <div className='modal-box max-w-screen-2xl'>
-                  {loading ? 
-                    <span className="loading loading-spinner loading-lg text-center"></span> :
-                    <div className="text-left">{msg}</div>
-                  }
+            <div className='flex content-between'>
+              <div className='card-actions justify-start'>
+                <label htmlFor='diary_modal' className='btn btn-primary'>Diary</label>
+                <input type='checkbox' id='diary_modal' className='modal-toggle' />
+                <div className='modal'>
+                  <div className='modal-box max-w-screen-2xl'>
+                    DIARY
+                  </div>
+                  <label className='modal-backdrop' htmlFor='diary_modal'>Close</label>
                 </div>
-                <label className='modal-backdrop' htmlFor='my_modal'>Close</label>
+              </div>
+              <div className='card-actions justify-end'>
+                <label htmlFor='my_modal' className='btn btn-primary'>Troubleshoot</label>
+                <input type='checkbox' id='my_modal' className='modal-toggle' onClick={() => loadTroubleshoot()} />
+                <div className='modal'>
+                  <div className='modal-box max-w-screen-2xl'>
+                    {loading ? 
+                      <span className="loading loading-spinner loading-lg text-center"></span> :
+                      <div className="text-left">{msg}</div>
+                    }
+                  </div>
+                  <label className='modal-backdrop' htmlFor='my_modal'>Close</label>
+                </div>
               </div>
             </div>
           }
