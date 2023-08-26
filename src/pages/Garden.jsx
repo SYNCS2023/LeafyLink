@@ -8,7 +8,7 @@ const Garden = () => {
 
   return (
     <div className='min-h-screen'>
-      <h1 className='text-5xl font-bold gradient-text'>Your Garden</h1>
+      <h1 className='text-5xl font-bold gradient-text pb-2'>Your Garden</h1>
       <br></br>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 justify-center">
         {plants.map(props => (props.owned == true) ?

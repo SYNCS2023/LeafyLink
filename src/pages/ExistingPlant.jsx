@@ -36,6 +36,8 @@ const ExistingPlant = () => {
       "likes": 0,
       "owned": true,
       "name": plantNameRef.current.value,
+      "user": "self",
+      "description": "self"
     };
     newPlants.push(addedPlant);
     setPlants(newPlants);

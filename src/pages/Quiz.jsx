@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 const Quiz = () => {
   return (
     <div className='min-h-screen'>
-      <h1 className='text-5xl font-bold gradient-text'>
+      <h1 className='text-5xl font-bold gradient-text pb-2'>
         Bring a new life to your garden!
       </h1>
       <div className='flex h-screen items-center justify-center'>
