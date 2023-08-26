@@ -21,9 +21,12 @@ class Engine {
   eventListeners() {
     let self = this;
     function resize() {
-      self.w = document.documentElement.offsetWidth - 0.5;
-      self.h = Math.max(window.innerHeight, document.documentElement.offsetHeight);
-
+      let newW = document.documentElement.offsetWidth - 0.5;
+      let newH = Math.max(window.innerHeight, document.documentElement.offsetHeight);
+      if (newW === this.w && newH === this.h) return;
+      this.w = newW;
+      this.h = newH;
+      
       // get the ratio of physical pixels to CSS pixels
       const dpr = window.devicePixelRatio || 1;
 
