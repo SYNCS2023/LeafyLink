@@ -2,6 +2,7 @@ import React from 'react';
 import Plant from '../components/Plant';
 import Menubar from '../components/Menubar';
 import { useState } from 'react';
+import Background from '../components/Background';
 
 const Garden = () => {
   const [plants, setPlants] = useState(JSON.parse(localStorage.getItem('plants')));

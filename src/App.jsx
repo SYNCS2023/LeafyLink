@@ -10,6 +10,7 @@ import AppContextProvider from './contexts/appContext';
 import FinalSuggestion from './pages/FinalSuggestion';
 import { useEffect, useState } from 'react';
 import defaultPlantData from './assets/defaultPlants.json'
+import Background from './components/Background';
 
 function App() {
   const [theme, setTheme] = useState(
@@ -21,7 +22,7 @@ function App() {
       localStorage.setItem('plants', JSON.stringify(defaultPlantData));
       console.log('Setting default plant DB.');
     }
-  }, []); 
+  }, []);
 
   useEffect(() => {
     document.querySelector("html").setAttribute("data-theme", theme);
@@ -45,20 +46,22 @@ function App() {
   }
 
   return (
-    <>
-      <input type="checkbox" id="theme-toggle" className="toggle absolute right-2 top-2" onChange={handleThemeChange} checked={theme === "dark"} />
-      <BrowserRouter>
-        <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/garden' element={<Garden />} />
-          <Route path='/quiz' element={<Quiz />} />
-          <Route path='/new' element={<SuggestPlant />} />
-          <Route path='/suggestion' element={<FinalSuggestion />} />
-          <Route path='/existing' element={<ExistingPlant />} />
-          <Route path='*' element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
-    </>
+    <div className='App grid'>
+      <div className='bg-transparent z-50'>
+        <Background />
+        <BrowserRouter>
+          <Routes>
+            <Route path='/' element={<Home />} />
+            <Route path='/garden' element={<Garden />} />
+            <Route path='/quiz' element={<Quiz />} />
+            <Route path='/new' element={<SuggestPlant />} />
+            <Route path='/suggestion' element={<FinalSuggestion />} />
+            <Route path='/existing' element={<ExistingPlant />} />
+            <Route path='*' element={<NotFound />} />
+          </Routes>
+        </BrowserRouter>
+      </div>
+    </div>
   );
 }
 
