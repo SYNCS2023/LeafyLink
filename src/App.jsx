@@ -1,5 +1,5 @@
 import './App.css';
-import { Routes, Route, BrowserRouter } from 'react-router-dom';
+import { Routes, Route, HashRouter } from 'react-router-dom';
 import Garden from './pages/Garden';
 import Home from './pages/Home';
 import Quiz from './pages/Quiz';
