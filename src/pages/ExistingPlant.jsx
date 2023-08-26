@@ -1,6 +1,7 @@
 import Webcam from "react-webcam";
 import BackButton from "../components/BackButton";
 import { useRef, useState } from "react";
+import { config } from "../logic/constants";
 
 
 const ExistingPlant = () => {
@@ -47,7 +48,7 @@ const ExistingPlant = () => {
     setPlants(newPlants);
     localStorage.setItem('plants', JSON.stringify(newPlants));
 
-    window.location.href = "/garden";
+    window.location.href = config.base + "/garden";
 
   //   console.log(await (await fetch('/api/predict_image', {
   //     method: 'PUT',
