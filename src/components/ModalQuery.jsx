@@ -41,7 +41,7 @@ const helpMsg = [
   </>
 ];
 
-const Modal = (props) => {
+const ModalQuery = (props) => {
   const [loading, setLoading] = useState("imagepicker");
   const [msg, setMsg] = useState(<></>); // troubleshoot msg
   const [capturedImage, setCapturedImage] = useState(null);
@@ -121,4 +121,4 @@ const Modal = (props) => {
   )
 }
 
-export default Modal
+export default ModalQuery
