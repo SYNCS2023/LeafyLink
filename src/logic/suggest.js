@@ -165,25 +165,25 @@ async function suggestPlants(budget, location, property, time, potted) {
 // console.log(suggestPlants());
 // console.log(await suggestPlants(0, {latitude: -33.865143, longitude: 151.209900}, "apartment", 5, pot));
 // console.log(await suggestPlants(0, {latitude: -33.865143, longitude: 151.209900}, "house", 5, pot));
-console.log(
-    await suggestPlants(
-        0,
-        { latitude: -33.865143, longitude: 151.2099 },
-        'house',
-        5,
-        "pot"
-    )
-);
+// console.log(
+//     await suggestPlants(
+//         0,
+//         { latitude: -33.865143, longitude: 151.2099 },
+//         'house',
+//         5,
+//         "pot"
+//     )
+// );
 
-console.log(
-    await suggestPlants(
-        0,
-        { latitude: -33.865143, longitude: 151.2099 },
-        'house',
-        5,
-        "ground"
-    )
-  );
+// console.log(
+//     await suggestPlants(
+//         0,
+//         { latitude: -33.865143, longitude: 151.2099 },
+//         'house',
+//         5,
+//         "ground"
+//     )
+//   );
 
 // console.log((new Date()).getMonth());
 
