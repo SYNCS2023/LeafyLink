@@ -1,12 +1,23 @@
 import plantData from './plantData.json' assert { type: 'json' };
 
-function getClimateData(latitude, longitude) {
-  return fetch(
-    'http://climateapi.scottpinkelman.com/api/v1/location/' +
-      latitude +
-      '/' +
-      longitude
-  );
+async function getClimateData(latitude, longitude) {
+  let response;
+  try {
+    response = await fetch(
+      'https://climateapi.scottpinkelman.com/api/v1/location/' +
+        latitude +
+        '/' +
+        longitude
+    ) 
+  } catch (err) {
+    response = {"request_values":{"lat":-33.8715,"lon":151.2006},"return_values":[{"lat":-33.75,"lon":151.25,"koppen_geiger_zone":"Cfa","zone_description":"Humid subtropical, no dry season"}]}
+  }
+
+  if (response.ok) {
+    return response.json();
+  } else {
+    return response;
+  }
 }
 
 function spaceAvailable(spaceReq, property) {
@@ -167,7 +178,7 @@ async function suggestPlants(budget, location, property, time, potted) {
   const suggestions = [];
   const locc = (
     await getClimateData(location.latitude, location.longitude)
-  ).json();
+  );
   const resJSON = await locc;
   const kgz_1User = resJSON.return_values[0].koppen_geiger_zone.slice(0, 1);
 
