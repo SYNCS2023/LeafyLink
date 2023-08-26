@@ -1,0 +1,42 @@
+[
+    {
+        "img": "/images/lari.png",
+        "type": "Cucumber",
+        "age": 0, 
+        "likes": 133,
+        "owned": true,
+        "name": "Lari"
+    },
+    {
+        "img": "/images/ryan.jpeg",
+        "type": "Tomato",
+        "age": 1, 
+        "likes": 133,
+        "owned": true,
+        "name": "Ryan"
+    },
+    {
+        "img": "/images/luke.png",
+        "type": "Potato",
+        "age": 2, 
+        "likes": 133,
+        "owned": true,
+        "name": "Luke"
+    },
+    {
+        "img": "/images/wanning.png",
+        "type": "Artichoke",
+        "age": 3, 
+        "likes": 113,
+        "owned": true,
+        "name": "Wanning"
+    },
+    {
+        "img": "/images/haowen.webp",
+        "type": "Mandarin",
+        "age": 4, 
+        "likes": 113,
+        "owned": true,
+        "name": "Luke"
+    }
+]
