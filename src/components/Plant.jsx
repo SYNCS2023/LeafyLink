@@ -85,7 +85,7 @@ const Plant = (props) => {
           </div>
           {props.owned &&
             <div className='flex content-between'>
-              <div className='card-actions justify-start'>
+              <div className='card-actions justify-start mr-2'>
                 <label htmlFor='diary_modal' className='btn btn-primary'>Diary</label>
                 <input type='checkbox' id='diary_modal' className='modal-toggle' />
                 <div className='modal'>
