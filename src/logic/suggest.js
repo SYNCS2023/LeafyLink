@@ -142,23 +142,23 @@ async function suggestPlants(budget, location, property, time, potted) {
         }
     }
 
-  if (suggestions.length == 0) return suggestions;
+    if (suggestions.length == 0) return suggestions;
 
-  suggestions.sort(function (a, b) {
-    return b.score - a.score;
-  });
+    suggestions.sort(function (a, b) {
+        return b.score - a.score;
+    });
 
-  const max = suggestions[0].score;
-  const suggestionsMax = suggestions.filter(function (s) {
-    return s.score === max;
-  });
+    const max = suggestions[0].score;
+    const suggestionsMax = suggestions.filter(function (s) {
+        return s.score === max;
+    });
 
-  if (suggestions.length >= 3 && suggestionsMax.length >= 3) {
-    const shuffledMax = suggestionsMax.sort(() => 0.5 - Math.random());
-    return shuffledMax.slice(0, 3);
-  } else {
-    return suggestions.slice(0, 3);
-  }
+    if (suggestions.length >= 3 && suggestionsMax.length >= 3) {
+        const shuffledMax = suggestionsMax.sort(() => 0.5 - Math.random());
+        return shuffledMax.slice(0, 3);
+    } else {
+        return suggestions.slice(0, 3);
+    }
 }
     
 
@@ -166,22 +166,22 @@ async function suggestPlants(budget, location, property, time, potted) {
 // console.log(await suggestPlants(0, {latitude: -33.865143, longitude: 151.209900}, "apartment", 5, pot));
 // console.log(await suggestPlants(0, {latitude: -33.865143, longitude: 151.209900}, "house", 5, pot));
 console.log(
-  await suggestPlants(
-    0,
-    { latitude: -33.865143, longitude: 151.2099 },
-    'house',
-    5,
-    "pot"
-  )
+    await suggestPlants(
+        0,
+        { latitude: -33.865143, longitude: 151.2099 },
+        'house',
+        5,
+        "pot"
+    )
 );
 
 console.log(
     await suggestPlants(
-      0,
-      { latitude: -33.865143, longitude: 151.2099 },
-      'house',
-      5,
-      "ground"
+        0,
+        { latitude: -33.865143, longitude: 151.2099 },
+        'house',
+        5,
+        "ground"
     )
   );
 
