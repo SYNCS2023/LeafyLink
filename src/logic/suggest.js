@@ -20,45 +20,90 @@ function spaceAvailable(spaceReq, property) {
     return false;
 }
 
+function distanceDifficulty(plant, time) {
+    const diff = plant.diff;
+    const factor = 2;
+    let uLvl = 1.5;
+    if (time === ">1") {
+        if (diff <= 1) {
+            return 5 / factor;
+        }
+        uLvl = 1;
+    } else if (time === "1-3") {
+        if (diff <= 2) {
+            return 5 / factor;
+        }
+        uLvl = 1.5;
+    } else if (time === "3-6") {
+        if (diff === 2) {
+            return 5 / factor;
+        }
+        uLvl = 2;
+    } else if (time === "6-12") {
+        if (diff === 3 || diff === 4) {
+            return 5 / factor;
+        }
+        uLvl = 3;
+    } else { // 12+
+        if (diff === 4) {
+            return 5 / factor;
+        }
+        uLvl = 4;
+    }
+
+    return (5 - Math.abs(diff - uLvl));
+}
+
 function distanceHarvestTime(plant, time) {
     const harvestTime = plant.harvest_time;
     let midTime = 0;
+    const factor = 2;
 
     // via exp dist
 
     // param tuning
     if (time === ">1") {
         if (harvestTime <= 1) {
-            return 7;
+            return 5 / factor;
         }
 
         midTime = 1;
     } else if (time === "1-3") {
         if (harvestTime > 1 && harvestTime <= 3) {
-            return 7;
+            return 5 / factor;
         }
         
         midTime = 3;
     } else if (time === "3-6") {
         if (harvestTime > 3 && harvestTime <= 6) {
-            return 7;
+            return 5 / factor;
         }
 
         midTime = 6;
     } else if (time === "6-12") {
         if (harvestTime > 6 && harvestTime <= 12) {
-            return 7;
+            return 5 / factor;
         }
 
         midTime = 12;
     } else { // 12+
         if (harvestTime > 12) {
-            return 7;
+            return 5 / factor;
         }
-        time = 12;
     }
 
-    return 7 - 4 * Math.log(Math.abs(harvestTime - midTime));
+    return (5 - 2.5 * Math.log(Math.abs(harvestTime - midTime))) / factor;
+}
+
+function priceWeighting(plant, budget) {
+    const price = plant.price;
+    const pool = parseInt(budget);
+
+    if (price < budget * 1.1) {
+        return 5;
+    } else {
+        return (pool - price);
+    }
 }
 
 function getSeasonalLightConditions(latitude) {
@@ -132,13 +177,16 @@ async function suggestPlants(budget, location, property, time, potted) {
             const seasonalLight = getSeasonalLightConditions(location.latitude);
             if (value.light_level.includes(seasonalLight)) {
                 if (potted === "ground") {
-                    suggestions[index].score = suggestions[index].score + 5;
+                    suggestions[index].score = suggestions[index].score + 4;
                 } else { // potted
-                    suggestions[index].score = suggestions[index].score + 2;
+                    suggestions[index].score = suggestions[index].score + 1;
                 }
             }
 
             suggestions[index].score = suggestions[index].score + distanceHarvestTime(value, time);   
+            suggestions[index].score = suggestions[index].score + distanceDifficulty(value, time);   
+            suggestions[index].score = suggestions[index].score + priceWeighting(value, budget);   
+
         }
     }
 
@@ -147,6 +195,8 @@ async function suggestPlants(budget, location, property, time, potted) {
     suggestions.sort(function (a, b) {
         return b.score - a.score;
     });
+
+    return suggestions;
 
     const max = suggestions[0].score;
     const suggestionsMax = suggestions.filter(function (s) {
@@ -189,7 +239,7 @@ async function suggestPlants(budget, location, property, time, potted) {
 
 // console.log(
 //     await suggestPlants(
-//         0,
+//         10,
 //         { latitude: -30.607830902, longitude: 130.407831702 },
 //         'caravan',
 //         "3-6",
@@ -199,17 +249,27 @@ async function suggestPlants(budget, location, property, time, potted) {
 
 // console.log(
 //     await suggestPlants(
-//         0,
+//         5,
 //         { latitude: -30.607830902, longitude: 130.407831702 },
-//         'house',
-//         "12+",
-//         "ground"
+//         'room',
+//         ">1",
+//         "pot"
 //     )
 // );
 
 // console.log(
 //     await suggestPlants(
-//         0,
+//         50,
+//         { latitude: -30.607830902, longitude: 130.407831702 },
+//         'house',
+//         "12+",
+//         "pot"
+//     )
+// );
+
+// console.log(
+//     await suggestPlants(
+//         100,
 //         { latitude: -27.46794000, longitude: 153.02809000 },
 //         'house',
 //         "12+",

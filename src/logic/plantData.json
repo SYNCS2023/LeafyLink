@@ -11,7 +11,9 @@
             "pots": true,
             "garden": true,
             "harvest_time": 8,
-            "light_level": ["full"]
+            "light_level": ["full"],
+            "diff": 2,
+            "price": 15
         },
         "avocado": {
             "name": "avocado",
@@ -24,7 +26,9 @@
             "pots": false,
             "garden": true,
             "harvest_time": 84,
-            "light_level": ["partial", "full"]
+            "light_level": ["partial", "full"],
+            "diff": 4,
+            "price": 30
         },
         "basil": {
             "name": "basil",
@@ -37,7 +41,9 @@
             "pots": true,
             "garden": true,
             "harvest_time": 2,
-            "light_level": ["full"]
+            "light_level": ["full"],
+            "diff": 1,
+            "price": 5
         },
         "bean sprout": {
             "name": "bean sprout",
@@ -50,7 +56,9 @@
             "pots": true,
             "garden": false,
             "harvest_time": 0.5,
-            "light_level": ["shade", "partial"]
+            "light_level": ["shade", "partial"],
+            "diff": 1,
+            "price": 3
         },
         "cabbage": {
             "name": "cabbage",
@@ -63,7 +71,9 @@
             "pots": false,
             "garden": true,
             "harvest_time": 4,
-            "light_level": ["full"]
+            "light_level": ["full"],
+            "diff": 3,
+            "price": 7
         },
         "carrot": {
             "name": "carrot",
@@ -76,7 +86,9 @@
             "pots": false,
             "garden": true,
             "harvest_time": 2.6,
-            "light_level": ["partial", "full"]
+            "light_level": ["partial", "full"],
+            "diff": 3,
+            "price": 3
         },
         "celery": {
             "name": "celery",
@@ -89,7 +101,9 @@
             "pots": false,
             "garden": true,
             "harvest_time": 4,
-            "light_level": ["partial", "full"]
+            "light_level": ["partial", "full"],
+            "diff": 2,
+            "price": 3
         },
         "cherry tomato": {
             "name": "cherry tomato",
@@ -102,7 +116,9 @@
             "pots": true,
             "garden": true,
             "harvest_time": 2.5,
-            "light_level": ["full"]
+            "light_level": ["full"],
+            "diff": 2,
+            "price": 8
         },
         "chives": {
             "name": "chives",
@@ -115,7 +131,9 @@
             "pots": true,
             "garden": true,
             "harvest_time": 3,
-            "light_level": ["partial", "full"]
+            "light_level": ["partial", "full"],
+            "diff": 2,
+            "price": 5
         },
         "clinatro": {
             "name": "clinatro",
@@ -128,7 +146,9 @@
             "pots": true,
             "garden": true,
             "harvest_time": 1,
-            "light_level": ["partial", "full"]
+            "light_level": ["partial", "full"],
+            "diff": 1,
+            "price": 5
         },
         "mango": {
             "name": "mango",
@@ -141,7 +161,9 @@
             "pots": false,
             "garden": true,
             "harvest_time": 60,
-            "light_level": ["full"]
+            "light_level": ["full"],
+            "diff": 4,
+            "price": 40
         },
         "mint": {
             "name": "mint",
@@ -154,7 +176,9 @@
             "pots": true,
             "garden": true,
             "harvest_time": 3,
-            "light_level": ["partial", "full"]
+            "light_level": ["partial", "full"],
+            "diff": 1,
+            "price": 4
         },
         "orange": {
             "name": "orange",
@@ -167,7 +191,9 @@
             "pots": false,
             "garden": true,
             "harvest_time": 60,
-            "light_level": ["full"]
+            "light_level": ["full"],
+            "diff": 4,
+            "price": 30
         },
         "oregano": {
             "name": "oregano",
@@ -180,7 +206,9 @@
             "pots": true,
             "garden": true,
             "harvest_time": 2.5,
-            "light_level": ["full"]
+            "light_level": ["full"],
+            "diff": 1,
+            "price": 3
         },
         "parsley": {
             "name": "parsley",
@@ -193,7 +221,9 @@
             "pots": true,
             "garden": true,
             "harvest_time": 2.5,
-            "light_level": ["partial", "full"]
+            "light_level": ["partial", "full"],
+            "diff": 1,
+            "price": 3
         },
         "rosemary": {
             "name": "rosemary",
@@ -206,7 +236,9 @@
             "pots": true,
             "garden": true,
             "harvest_time": 4,
-            "light_level": ["full"]
+            "light_level": ["full"],
+            "diff": 1,
+            "price": 8
         },
         "sage": {
             "name": "sage",
@@ -219,7 +251,9 @@
             "pots": true,
             "garden": true,
             "harvest_time": 3,
-            "light_level": ["full"]
+            "light_level": ["full"],
+            "diff": 1,
+            "price": 6
         },
         "strawberry": {
             "name": "strawberry",
@@ -232,7 +266,9 @@
             "pots": false,
             "garden": true,
             "harvest_time": 4,
-            "light_level": ["full"]
+            "light_level": ["full"],
+            "diff": 2,
+            "price": 10
         },
         "thyme": {
             "name": "thyme",
@@ -245,7 +281,9 @@
             "pots": true,
             "garden": true,
             "harvest_time": 4,
-            "light_level": ["full"]
+            "light_level": ["full"],
+            "diff": 1,
+            "price": 8
         }
     }
 }
