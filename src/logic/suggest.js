@@ -153,11 +153,13 @@ async function suggestPlants(budget, location, property, time, potted) {
         return s.score === max;
     });
 
-    if (suggestions.length >= 3 && suggestionsMax.length >= 3) {
+    if (suggestionsMax.length >= 3) {
         const shuffledMax = suggestionsMax.sort(() => 0.5 - Math.random());
         return shuffledMax.slice(0, 3);
-    } else {
+    } else if (suggestions.length >= 3) {
         return suggestions.slice(0, 3);
+    } else {
+        return suggestions;
     }
 }
     
