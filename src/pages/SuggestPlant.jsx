@@ -32,6 +32,16 @@ const SuggestPlant = () => {
   }, [suggestion]);
 
   const doSuggestPlants = () => {
+    if (
+      budget === '' ||
+      location === null ||
+      property === '' ||
+      time === '' ||
+      potted === ''
+    ) {
+      alert('Please fill in all fields');
+      return;
+    }
     suggestPlants(budget, location, property, time, potted).then((result) => {
       setSuggestion(result);
     });
