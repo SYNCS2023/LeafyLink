@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 import suggestPlants from '../logic/suggest';
 import plantData from '../logic/plantData.json';
 import SuggestCard from '../components/SuggestCard';
-import { config } from '../logic/constants';
 
 const SuggestPlant = () => {
   const [budget, setBudget] = useState(0);
@@ -212,7 +211,6 @@ const SuggestPlant = () => {
                 <SuggestCard
                   name={suggestion[0].name}
                   imageUrl={
-                    config.base +
                     `/images/suggestions/` +
                     suggestion[0].name +
                     `.jpg`
@@ -221,7 +219,6 @@ const SuggestPlant = () => {
                 <SuggestCard
                   name={suggestion[1].name}
                   imageUrl={
-                    config.base +
                     `/images/suggestions/` +
                     suggestion[1].name +
                     `.jpg`
@@ -230,7 +227,6 @@ const SuggestPlant = () => {
                 <SuggestCard
                   name={suggestion[2].name}
                   imageUrl={
-                    config.base +
                     `/images/suggestions/` +
                     suggestion[2].name +
                     `.jpg`

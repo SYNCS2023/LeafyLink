@@ -49,8 +49,6 @@ const ExistingPlant = () => {
     localStorage.setItem('plants', JSON.stringify(newPlants));
 
     window.location.href = config.base + "/#/garden";
-
-
   };
 
   return (
