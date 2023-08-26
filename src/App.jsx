@@ -13,6 +13,7 @@ import defaultPlantData from './assets/defaultPlants.json'
 import Background from './components/Background';
 import { config } from './logic/constants';
 import Debug from './pages/Debug';
+import ScrollToTop from './components/ScrollToTop'
 
 function App() {
   useEffect(() => {
@@ -27,6 +28,7 @@ function App() {
       <div className='bg-transparent z-50'>
         <Background />
         <HashRouter>
+          <ScrollToTop />
           <Routes>
             <Route path='/' element={<Home />} />
             <Route path='/garden' element={<Garden />} />
