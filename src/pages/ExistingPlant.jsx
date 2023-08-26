@@ -79,7 +79,8 @@ const ExistingPlant = () => {
         onFileChange={(imageSrc) => {setCapturedImage(imageSrc); setUserImage(true);}}
       />
       <p className="p-2">Selected image:</p>
-      {capturedImage && <img src={config.base + capturedImage} alt="Captured" />}
+      {capturedImage && capturedImage.startsWith('data:image') && <img src={config.base + capturedImage} alt="Captured" />}
+      {capturedImage && !capturedImage.startsWith('data:image') && <img src={capturedImage} alt="Captured" />}
       </div>
       
       <div className="p-2">
