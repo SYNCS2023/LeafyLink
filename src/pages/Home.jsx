@@ -1,8 +1,10 @@
 import React from 'react';
 import Plant from '../components/Plant';
+import Menubar from '../components/Menubar';
 
 const Home = () => {
   return <div>
+    <h1>Urban Gardening</h1>
     <div className="grid grid-cols-1 gap-4 content-center justify-items-center">
       <Plant name="Ryan" type="Cherry Tomato" img="/images/ryan.jpeg" />
       <Plant name="Luke" type="Potato" img="/images/luke.png" />
@@ -13,6 +15,7 @@ const Home = () => {
       <Plant name="Ryan" type="Cherry Tomato" img="/images/ryan.jpeg" />
       <Plant name="Ryan" type="Cherry Tomato" img="/images/ryan.jpeg" />
     </div>
+    <Menubar />
   </div>;
 };
 
