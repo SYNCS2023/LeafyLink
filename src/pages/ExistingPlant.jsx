@@ -48,7 +48,7 @@ const ExistingPlant = () => {
     setPlants(newPlants);
     localStorage.setItem('plants', JSON.stringify(newPlants));
 
-    window.location.href = config.base + "/garden";
+    window.location.href = config.base + "/#/garden";
 
   //   console.log(await (await fetch('/api/predict_image', {
   //     method: 'PUT',
