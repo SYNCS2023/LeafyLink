@@ -1,4 +1,15 @@
-[
+[   
+    {
+        "id": 0,
+        "img": "/images/tomato.jpg",
+        "type": "Tomato",
+        "age": 66, 
+        "likes": 77,
+        "owned": true,
+        "name": "Tomato tree",
+        "user": "self",
+        "description": "self"
+    },
     {
         "id": 1,
         "img": "/images/banana.png",

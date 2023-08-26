@@ -34,15 +34,6 @@ const Plant = (props) => {
     setPlants(newPlants);
     localStorage.setItem('plants', JSON.stringify(newPlants));
   };
-  console.log(props.type);
-  if (props.type == "Tomato") {
-    console.log("tomato");
-    // modal = ;
-    modal = <div>tomato <ModalQuery /></div>
-  }
-  else {
-    modal = <div>tomato2 <ModalPlain /></div>//;
-  }
 
   return (
     <>
@@ -105,7 +96,7 @@ const Plant = (props) => {
                 </div>
               </div>
               <div className='card-actions justify-end'>
-                {modal /* {props.type == "Tomato" ? <ModalQuery /> : <ModalPlain />} */}
+                {props.type == "Tomato" ? <ModalQuery /> : <ModalPlain />}
               </div>
             </div>
           }
