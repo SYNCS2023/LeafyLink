@@ -90,7 +90,7 @@ const Plant = (props) => {
         <figure className='h-60'>
           <img
             className='object-cover hover:scale-110 transition duration-500 cursor-pointer'
-            src={config.base + props.img}
+            src={props.img}
             alt={props.type}
           />
           {(() => {
