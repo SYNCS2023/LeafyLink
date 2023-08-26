@@ -55,12 +55,14 @@ class Engine {
   };
 
   particlesInit() {
-    console.log(this.w, this.h)
-    for (let i = 0; i < 300; ++i) {
+    this.particles = [];
+    let density = 10000;
+    console.log(this.w * this.h / density);
+    for (let i = 0; i * density < this.w * this.h; ++i) {
       let x = Math.random() * this.w;
       let y = Math.random() * this.h;
       let drift = Math.random() * Math.PI * 2;
-      let alpha = Math.random() * 0.5;
+      let alpha = Math.random() * 0.75;
       let green = Math.random() * 128 + 127;
       let size = Math.random() * 2;
       this.particles.push({ x, y, drift, alpha, green, size });
