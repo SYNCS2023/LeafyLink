@@ -1,10 +1,11 @@
 import React from 'react';
+import { config } from '../logic/constants';
 
 const BackButton = () => {
   return (
     <div>
     <button
-      onClick={() => window.location.href = "/quiz"}
+      onClick={() => window.location.href = config.base + "/#/quiz"}
       className="absolute top-4 left-4 p-2 text-primary btn-ghost"
     >
       <svg
