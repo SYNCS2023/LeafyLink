@@ -9,17 +9,16 @@ import ExistingPlant from './pages/ExistingPlant';
 import AppContextProvider from './contexts/appContext';
 import FinalSuggestion from './pages/FinalSuggestion';
 import { useEffect, useState } from 'react';
-import defaultPlantData from './assets/defaultPlants.json'
+import defaultPlantData from './assets/defaultPlants.json';
 import Background from './components/Background';
 import { config } from './logic/constants';
 import Debug from './pages/Debug';
-import ScrollToTop from './components/ScrollToTop'
+import ScrollToTop from './components/ScrollToTop';
 
 function App() {
   useEffect(() => {
     if (localStorage.getItem('plants') === null) {
       localStorage.setItem('plants', JSON.stringify(defaultPlantData));
-      console.log('Setting default plant DB.');
     }
   }, []);
 

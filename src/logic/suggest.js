@@ -8,9 +8,19 @@ async function getClimateData(latitude, longitude) {
         latitude +
         '/' +
         longitude
-    ) 
+    );
   } catch (err) {
-    response = {"request_values":{"lat":-33.8715,"lon":151.2006},"return_values":[{"lat":-33.75,"lon":151.25,"koppen_geiger_zone":"Cfa","zone_description":"Humid subtropical, no dry season"}]}
+    response = {
+      request_values: { lat: -33.8715, lon: 151.2006 },
+      return_values: [
+        {
+          lat: -33.75,
+          lon: 151.25,
+          koppen_geiger_zone: 'Cfa',
+          zone_description: 'Humid subtropical, no dry season',
+        },
+      ],
+    };
   }
 
   if (response.ok) {
@@ -176,24 +186,9 @@ function getSeasonalLightConditions(latitude) {
 
 async function suggestPlants(budget, location, property, time, potted) {
   const suggestions = [];
-  const locc = (
-    await getClimateData(location.latitude, location.longitude)
-  );
+  const locc = await getClimateData(location.latitude, location.longitude);
   const resJSON = await locc;
   const kgz_1User = resJSON.return_values[0].koppen_geiger_zone.slice(0, 1);
-
-  console.log(
-    'Ordered suggestions for input of: ' +
-      location.latitude +
-      ' ' +
-      location.longitude +
-      ' ' +
-      property +
-      ' ' +
-      time +
-      ' ' +
-      potted
-  );
 
   // param tuning
   for (let [key, value] of Object.entries(plantData.data)) {
@@ -253,70 +248,5 @@ async function suggestPlants(budget, location, property, time, potted) {
     return suggestions;
   }
 }
-
-// console.log(suggestPlants());
-// console.log(await suggestPlants(0, {latitude: -33.865143, longitude: 151.209900}, "apartment", 5, pot));
-// console.log(await suggestPlants(0, {latitude: -33.865143, longitude: 151.209900}, "house", 5, pot));
-// console.log(
-//     await suggestPlants(
-//         0,
-//         { latitude: -33.865143, longitude: 151.2099 },
-//         'house',
-//         5,
-//         "pot"
-//     )
-// );
-
-// console.log(
-//     await suggestPlants(
-//         0,
-//         { latitude: -33.865143, longitude: 151.2099 },
-//         'house',
-//         5,
-//         "ground"
-//     )
-//   );
-
-// console.log(
-//     await suggestPlants(
-//         10,
-//         { latitude: -30.607830902, longitude: 130.407831702 },
-//         'caravan',
-//         "3-6",
-//         "pot"
-//     )
-// );
-
-// console.log(
-//     await suggestPlants(
-//         5,
-//         { latitude: -30.607830902, longitude: 130.407831702 },
-//         'room',
-//         ">1",
-//         "pot"
-//     )
-// );
-
-// console.log(
-//     await suggestPlants(
-//         50,
-//         { latitude: -30.607830902, longitude: 130.407831702 },
-//         'house',
-//         "12+",
-//         "pot"
-//     )
-// );
-
-// console.log(
-//     await suggestPlants(
-//         100,
-//         { latitude: -27.46794000, longitude: 153.02809000 },
-//         'house',
-//         "12+",
-//         "ground"
-//     )
-// );
-
-// console.log((new Date()).getMonth());
 
 export default suggestPlants;

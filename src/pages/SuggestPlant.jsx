@@ -17,18 +17,12 @@ const SuggestPlant = () => {
 
   function getImageUrl(plantName) {
     const plant = plantData.data[plantName];
-    console.log(plant);
     if (plant) {
-      console.log(plant.image_url);
       return plant.image_url;
     } else {
       return 'https://www.myjunglehome.com.au/cdn/shop/products/monstera-deliciosa-plant-13cm-pot-my-jungle-home-595924_900x.jpg?v=1671202717';
     }
   }
-
-  useEffect(() => {
-    console.log('suggestion state updated:', suggestion);
-  }, [suggestion]);
 
   const doSuggestPlants = () => {
     if (
@@ -211,25 +205,19 @@ const SuggestPlant = () => {
                 <SuggestCard
                   name={suggestion[0].name}
                   imageUrl={
-                    `/images/suggestions/` +
-                    suggestion[0].name +
-                    `.jpg`
+                    `/images/suggestions/` + suggestion[0].name + `.jpg`
                   }
                 />
                 <SuggestCard
                   name={suggestion[1].name}
                   imageUrl={
-                    `/images/suggestions/` +
-                    suggestion[1].name +
-                    `.jpg`
+                    `/images/suggestions/` + suggestion[1].name + `.jpg`
                   }
                 />
                 <SuggestCard
                   name={suggestion[2].name}
                   imageUrl={
-                    `/images/suggestions/` +
-                    suggestion[2].name +
-                    `.jpg`
+                    `/images/suggestions/` + suggestion[2].name + `.jpg`
                   }
                 />
               </div>

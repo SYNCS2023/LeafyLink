@@ -1,5 +1,5 @@
-import { useRef, useEffect } from "react";
-import module from "./perlin";
+import { useRef, useEffect } from 'react';
+import module from './perlin';
 
 class Engine {
   el;
@@ -22,12 +22,14 @@ class Engine {
     let self = this;
     function resize() {
       let newW = document.documentElement.offsetWidth - 0.5;
-      let newH = Math.max(window.innerHeight, document.documentElement.offsetHeight);
+      let newH = Math.max(
+        window.innerHeight,
+        document.documentElement.offsetHeight
+      );
       if (newW === self.w && newH === self.h) return;
-      console.log(newW, newH);
       self.w = newW;
       self.h = newH;
-      
+
       // get the ratio of physical pixels to CSS pixels
       const dpr = window.devicePixelRatio || 1;
 
@@ -48,20 +50,19 @@ class Engine {
       self.particlesInit();
     }
     setTimeout(resize, 50);
-    window.addEventListener("resize", resize);
-    window.addEventListener("onload", resize);
+    window.addEventListener('resize', resize);
+    window.addEventListener('onload', resize);
   }
 
   draw(prevTime) {
     let nowTime = Date.now() / 1000;
     this.particlesDraw(nowTime - prevTime);
     this.drawAnimFrame = window.requestAnimationFrame(() => this.draw(nowTime));
-  };
+  }
 
   particlesInit() {
     this.particles = [];
     let density = 5000;
-    console.log(this.w * this.h / density);
     for (let i = 0; i * density < this.w * this.h; ++i) {
       let x = Math.random() * this.w;
       let y = Math.random() * this.h;
@@ -77,7 +78,12 @@ class Engine {
     let time = Date.now() / 1000;
     this.ctx.clearRect(0, 0, this.w, this.h);
     for (let particle of this.particles) {
-      let r = 30 * particle.size * Math.sin(time / 2 + particle.drift) * Math.sin(time / 2 + particle.drift) + 10;
+      let r =
+        30 *
+          particle.size *
+          Math.sin(time / 2 + particle.drift) *
+          Math.sin(time / 2 + particle.drift) +
+        10;
       this.ctx.fillStyle = `rgba(0, ${particle.green}, 0, ${particle.alpha})`;
       this.ctx.beginPath();
       this.ctx.arc(particle.x, particle.y, r, 0, Math.PI * 2);
@@ -109,23 +115,22 @@ const Background = () => {
   useEffect(() => {
     setTimeout(() => {
       const canvas = canvasRef.current;
-      const context = canvas?.getContext("2d");
+      const context = canvas?.getContext('2d');
       if (canvas && context) {
-        new Engine(
-          canvas,
-          context,
-        );
+        new Engine(canvas, context);
       }
     }, 10); // 10ms
   }, [canvasRef]);
 
   return (
-    <div className="fixed top-0 left-0 w-screen h-screen -z-50">
-      <canvas className="fixed top-0 left-0 w-screen h-screen" ref={canvasRef}></canvas>
-      <div className="fixed top-0 left-0 w-screen h-screen backdrop-blur-3xl"></div>
+    <div className='fixed top-0 left-0 w-screen h-screen -z-50'>
+      <canvas
+        className='fixed top-0 left-0 w-screen h-screen'
+        ref={canvasRef}
+      ></canvas>
+      <div className='fixed top-0 left-0 w-screen h-screen backdrop-blur-3xl'></div>
     </div>
-
   );
-}
+};
 
 export default Background;
