@@ -10,8 +10,8 @@ class Engine {
 
   constructor(canvas_el, ctx) {
     this.el = canvas_el;
-    this.w = canvas_el.offsetWidth; ctx.height
-    this.h = canvas_el.offsetHeight;
+    this.w = 0;
+    this.h = 0;
     this.ctx = ctx;
 
     this.eventListeners();
@@ -23,9 +23,10 @@ class Engine {
     function resize() {
       let newW = document.documentElement.offsetWidth - 0.5;
       let newH = Math.max(window.innerHeight, document.documentElement.offsetHeight);
-      if (newW === this.w && newH === this.h) return;
-      this.w = newW;
-      this.h = newH;
+      if (newW === self.w && newH === self.h) return;
+      console.log(newW, newH);
+      self.w = newW;
+      self.h = newH;
       
       // get the ratio of physical pixels to CSS pixels
       const dpr = window.devicePixelRatio || 1;
@@ -59,7 +60,7 @@ class Engine {
 
   particlesInit() {
     this.particles = [];
-    let density = 10000;
+    let density = 5000;
     console.log(this.w * this.h / density);
     for (let i = 0; i * density < this.w * this.h; ++i) {
       let x = Math.random() * this.w;
@@ -120,7 +121,7 @@ const Background = () => {
 
   return (
     <div className="fixed top-0 left-0 w-screen h-screen -z-50">
-      <canvas ref={canvasRef}></canvas>
+      <canvas className="fixed top-0 left-0 w-screen h-screen" ref={canvasRef}></canvas>
       <div className="fixed top-0 left-0 w-screen h-screen backdrop-blur-3xl"></div>
     </div>
 
