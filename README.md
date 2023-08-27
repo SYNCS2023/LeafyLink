@@ -41,3 +41,6 @@ In the future we’d like to expand the community aspect of the app by adding mo
 ## Running locally 
 npm i \
 npm run dev 
+
+## Demo
+Check out our demo video here: https://youtu.be/k5kcCw9USMA
