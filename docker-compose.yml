@@ -9,18 +9,3 @@ services:
                         - "${APP_HOST_PORT}:${APP_CONTAINER_PORT}"
                 build: .
                 container_name: "${COMPOSE_PROJECT_NAME}"
-
-# version: "3.4"
-# services:
-#  vite_docker:
-#    image: node:alpine
-#    container_name: vite_docker
-#    entrypoint: /bin/sh
-#    ports:
-#      - 3000:3000
-#    working_dir: /src
-#    volumes:
-#      - type: bind
-#        source: ./
-#        target: /src
-#    tty: true
