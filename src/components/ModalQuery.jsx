@@ -179,7 +179,7 @@ const ModalQuery = () => {
   const requestPlantProblem = async () => {
     setLoading('loading');
     let image_data = capturedImage;
-    let resp = await fetch('https://leafylink.ryno.codes/predict_image', {
+    let resp = await fetch('https://leafylinkbackend.ryno.codes/predict_image', {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
